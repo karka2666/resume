@@ -71,7 +71,17 @@
   .menu-btn { display: none; background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--ink); }
 
   /* ===== Hero ===== */
-  .hero { padding: 180px 0 100px; background: linear-gradient(180deg, #fdf2f0 0%, #faf7f4 30%, #FDF9F8 60%, #FDF9F8 100%); }
+  .hero {
+    padding: 180px 0 100px;
+    background: linear-gradient(180deg, #fdf2f0 0%, #faf7f4 30%, #FDF9F8 60%, #FDF9F8 100%);
+    position: relative; overflow: hidden;
+  }
+  .hero-bg-img {
+    position: absolute; right: -60px; top: 50%; transform: translateY(-50%);
+    width: 45%; max-width: 500px; opacity: 0.25; pointer-events: none;
+    mask-image: linear-gradient(to left, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+  }
   .hero-grid { display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: start; }
   .hero-avatar { width: 110px; height: 140px; border-radius: 8px; overflow: hidden; background: var(--line2); flex-shrink: 0; margin-top: 8px; }
   .hero-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -224,6 +234,7 @@
 
 <!-- ===== Hero ===== -->
 <section class="hero" id="hero">
+  <img class="hero-bg-img" src="images/hero-bg.png" alt="">
   <div class="container">
     <div class="hero-grid reveal">
       <div class="hero-avatar">
