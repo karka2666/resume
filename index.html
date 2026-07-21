@@ -23,6 +23,8 @@
     --accent: #c4928a;
     --accent-dark: #a0706a;
     --accent-light: #f5ece9;
+    --mint: #b8d0c2;
+    --mint-light: #e8f3ec;
     --green: #b8c8ba;
     --shadow-sm: 0 1px 3px rgba(140,100,100,0.05);
     --shadow: 0 4px 20px rgba(140,100,100,0.07);
@@ -73,7 +75,7 @@
   /* ===== Hero ===== */
   .hero {
     padding: 180px 0 100px;
-    background: linear-gradient(180deg, #fdf2f0 0%, #faf7f4 30%, #FDF9F8 60%, #FDF9F8 100%);
+    background: linear-gradient(180deg, #fdf4f2 0%, #f9f7f3 25%, #f5faf7 55%, #FDF9F8 100%);
     position: relative; overflow: hidden;
   }
   .hero-bg-img {
@@ -83,51 +85,101 @@
     -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
   }
 
-  /* ===== Curtain Splash ===== */
-  .curtain {
-    position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center;
-    background: #FDF9F8; cursor: pointer; transition: opacity 1.2s ease, visibility 1.2s ease;
+  /* ===== Splash Screen ===== */
+  .splash {
+    position: fixed; inset: 0; z-index: 9999; overflow: hidden;
+    background: linear-gradient(180deg, #fdf6f4 0%, #f5faf7 55%, #eef7f2 100%);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    transition: opacity 0.8s ease, transform 1s ease;
   }
-  .curtain.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+  .splash.exit { opacity: 0; transform: scale(1.04); pointer-events: none; }
 
-  .curtain-inner {
-    position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
-    overflow: hidden;
+  /* Lily image */
+  .splash-lily {
+    position: relative; width: 55%; max-width: 420px; margin-bottom: 8px;
+    filter: drop-shadow(0 8px 24px rgba(180,140,140,0.25));
+    animation: lilyFloat 4s ease-in-out infinite; z-index: 2;
   }
-
-  .curtain-img {
-    position: absolute; width: 65%; max-width: 600px; opacity: 0.55;
-    filter: blur(2px); transition: filter 1s ease, opacity 1s ease;
-    mask-image: radial-gradient(ellipse 60% 55% at 50% 50%, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0.2) 70%, rgba(0,0,0,0) 100%);
-    -webkit-mask-image: radial-gradient(ellipse 60% 55% at 50% 50%, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0.2) 70%, rgba(0,0,0,0) 100%);
-  }
-
-  .curtain-veil {
-    position: absolute; inset: 0;
-    background: linear-gradient(180deg,
-      rgba(253,249,248,0.6) 0%,
-      rgba(253,249,248,0.75) 30%,
-      rgba(253,249,248,0.85) 60%,
-      rgba(253,249,248,0.95) 85%,
-      #FDF9F8 100%);
+  .splash-lily img { width: 100%; display: block; }
+  @keyframes lilyFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
   }
 
-  .curtain-text {
-    position: relative; z-index: 2; text-align: center; user-select: none;
+  /* Water droplet */
+  .droplet-wrap {
+    position: relative; z-index: 3; cursor: pointer; margin-top: -20px;
   }
-  .curtain-text .title {
-    font-size: clamp(2rem, 5vw, 3rem); font-weight: 600; color: var(--accent-dark);
-    letter-spacing: 0.08em; margin-bottom: 12px;
+  .droplet {
+    width: 18px; height: 26px; margin: 0 auto;
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(200,160,160,0.7));
+    border-radius: 80% 0 55% 50% / 55% 0 80% 50%; transform: rotate(-35deg);
+    box-shadow: 0 2px 12px rgba(180,140,150,0.35);
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
-  .curtain-text .sub {
-    font-family: "PingFang SC", sans-serif; font-size: 0.9rem; color: var(--ink3);
-    letter-spacing: 0.15em; animation: pulse 2.5s ease-in-out infinite;
+  .droplet-wrap.clicked .droplet {
+    transform: rotate(-35deg) translateY(180px) scale(0.6);
+    opacity: 0;
   }
-  @keyframes pulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+  .droplet-label {
+    position: absolute; left: 50%; top: 36px; transform: translateX(-50%);
+    font-size: 0.82rem; font-weight: 500; color: var(--accent-dark);
+    letter-spacing: 0.06em; white-space: nowrap; text-align: center;
+    transition: opacity 0.6s ease;
+    font-family: "PingFang SC", sans-serif;
+  }
+  .droplet-wrap.clicked .droplet-label { opacity: 0; }
+
+  /* Ripple rings */
+  .ripples {
+    position: relative; z-index: 1; height: 40px; margin-top: 10px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .ripple {
+    position: absolute; width: 0; height: 0; border-radius: 50%;
+    border: 1.5px solid rgba(168,200,185,0.6);
+    opacity: 0;
+    transition: none;
+  }
+  .droplet-wrap.clicked ~ .ripples .ripple { animation: rippleOut 1.6s ease-out forwards; }
+  .ripple:nth-child(2) { animation-delay: 0.2s !important; }
+  .ripple:nth-child(3) { animation-delay: 0.4s !important; }
+
+  @keyframes rippleOut {
+    0% { width: 0; height: 0; opacity: 0.8; }
+    60% { opacity: 0.4; }
+    100% { width: 260px; height: 260px; opacity: 0; }
+  }
+
+  /* Splash title */
+  .splash-title {
+    margin-top: 24px; text-align: center; z-index: 2;
+    opacity: 0; transition: opacity 0.8s ease 1.2s;
+  }
+  .droplet-wrap.clicked ~ .splash-title { opacity: 1; }
+  .splash-title .name {
+    font-size: clamp(2rem, 4vw, 2.6rem); font-weight: 600;
+    color: var(--accent-dark); letter-spacing: 0.08em;
+  }
+  .splash-title .hint {
+    font-family: "PingFang SC", sans-serif; font-size: 0.82rem;
+    color: var(--ink3); margin-top: 6px; letter-spacing: 0.1em;
+  }
+
+  .splash-mist {
+    position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse 40% 30% at 50% 35%, rgba(255,255,255,0.5) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 25% at 50% 75%, rgba(184,200,186,0.15) 0%, transparent 60%);
+  }
 
   @media (max-width: 768px) {
-    .curtain-img { width: 85%; opacity: 0.45; }
-    .curtain-text .title { font-size: 1.6rem; }
+    .splash-lily { width: 72%; max-width: 300px; }
+    @keyframes rippleOut {
+      0% { width: 0; height: 0; opacity: 0.8; }
+      60% { opacity: 0.4; }
+      100% { width: 200px; height: 200px; opacity: 0; }
+    }
   }
   .hero-grid { display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: start; }
   .hero-avatar { width: 110px; height: 140px; border-radius: 8px; overflow: hidden; background: var(--line2); flex-shrink: 0; margin-top: 8px; }
@@ -266,15 +318,20 @@
 </head>
 <body>
 
-<!-- Curtain Splash -->
-<div class="curtain" id="curtain">
-  <div class="curtain-inner">
-    <img class="curtain-img" src="images/hero-bg.png" alt="">
-    <div class="curtain-veil"></div>
-    <div class="curtain-text">
-      <div class="title">罗楚婷</div>
-      <div class="sub">轻触进入</div>
-    </div>
+<!-- Splash Screen -->
+<div class="splash" id="splash">
+  <div class="splash-mist"></div>
+  <div class="splash-lily"><img src="images/hero-bg.png" alt="香水百合"></div>
+  <div class="droplet-wrap" id="dropletWrap">
+    <div class="droplet"></div>
+    <div class="droplet-label">罗楚婷的新媒体运营作品集</div>
+  </div>
+  <div class="ripples">
+    <div class="ripple"></div><div class="ripple"></div><div class="ripple"></div>
+  </div>
+  <div class="splash-title">
+    <div class="name">罗楚婷</div>
+    <div class="hint">正在进入…</div>
   </div>
 </div>
 
@@ -644,13 +701,21 @@
 <div class="vibe-tag">✦ Built with Vibe Coding</div>
 
 <script>
-  // Curtain — click to enter
-  const curtain = document.getElementById('curtain');
-  curtain.addEventListener('click', () => {
-    curtain.classList.add('hidden');
-    sessionStorage.setItem('entered', '1');
+  // Splash — click droplet to enter
+  const splash = document.getElementById('splash');
+  const dropletWrap = document.getElementById('dropletWrap');
+  dropletWrap.addEventListener('click', () => {
+    if (dropletWrap.classList.contains('clicked')) return;
+    dropletWrap.classList.add('clicked');
+    // After ripple animation, slide to content
+    setTimeout(() => {
+      splash.classList.add('exit');
+      sessionStorage.setItem('entered', '1');
+    }, 1800);
+    // Remove splash from DOM after transition
+    setTimeout(() => { splash.style.display = 'none'; }, 3000);
   });
-  if (sessionStorage.getItem('entered')) curtain.classList.add('hidden');
+  if (sessionStorage.getItem('entered')) splash.style.display = 'none';
 
   // Reveal on scroll
   const observer = new IntersectionObserver(entries => {
