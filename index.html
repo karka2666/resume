@@ -277,29 +277,57 @@
 
   /* ===== Responsive ===== */
   @media (max-width: 768px) {
-    section { padding: 80px 0; }
-    .hero { padding: 120px 0 60px; }
-    .hero-grid { grid-template-columns: 1fr; gap: 32px; }
-    .hero-avatar { width: 90px; height: 115px; }
-    .hero-tagline { max-width: 100%; font-size: 1rem; }
-    .hero-stats { gap: 24px; }
-    .info-strip { gap: 16px; }
+    section { padding: 64px 0; }
+    .hero { padding: 100px 0 48px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 24px; }
+    .hero-avatar { width: 80px; height: 100px; }
+    .hero-tagline { max-width: 100%; font-size: 0.95rem; line-height: 1.8; }
+    .hero-stats { gap: 18px; flex-wrap: wrap; }
+    .hero-stat .val { font-size: 1.6rem; }
+    .hero-name { font-size: clamp(2.4rem, 10vw, 3.6rem) !important; }
+    .info-strip { gap: 12px; font-size: 0.82rem; }
 
-    .proj-row { grid-template-columns: 1fr; gap: 16px; }
-    .proj-left { margin-bottom: 8px; }
-    .proj-meta { gap: 18px; flex-wrap: wrap; }
+    .container { padding: 0 20px; }
 
-    .gallery-card { width: 200px; }
-    .gallery-card img { height: 260px; }
+    .proj-row { grid-template-columns: 1fr; gap: 12px; }
+    .proj-left { margin-bottom: 4px; }
+    .proj-left h3 { font-size: 1.1rem; }
+    .proj-meta { gap: 14px; flex-wrap: wrap; }
+    .proj-meta .v { font-size: 1.1rem; }
+    .proj-desc { font-size: 0.85rem !important; }
+    .proj-bullets li { font-size: 0.82rem; }
+
+    .skills-row { gap: 8px; }
+    .skill-tag { font-size: 0.8rem; padding: 6px 14px; }
+
+    .masonry { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .masonry-item.big { grid-column: span 2; grid-row: span 1; }
+
+    .gallery-card { width: 170px; }
+    .gallery-card img { height: 230px; }
 
     .topbar-links { display: none; position: fixed; top: 52px; left: 0; right: 0;
-      background: rgba(254, 252, 249, 0.95); flex-direction: column; padding: 20px 32px;
-      border-bottom: 1px solid var(--line); gap: 16px; backdrop-filter: blur(12px);
+      background: rgba(253, 249, 248, 0.95); flex-direction: column; padding: 20px 28px;
+      border-bottom: 1px solid var(--line); gap: 14px; backdrop-filter: blur(12px);
     }
     .topbar-links.open { display: flex; }
     .menu-btn { display: block; }
 
-    .container { padding: 0 24px; }
+    .overview-grid { grid-template-columns: 1fr !important; }
+
+    .splash-text { left: 6%; max-width: 240px; }
+    .splash-text .brand { font-size: 2rem; }
+    .splash-text .subtitle { font-size: 0.9rem; }
+    .splash-lily-bg { width: 90%; right: -25%; opacity: 0.3; }
+
+    .return-btn { bottom: 20px; right: 16px; width: 38px; height: 38px; font-size: 1rem; }
+    .vibe-tag { bottom: 18px; left: 12px; font-size: 0.7rem; padding: 6px 10px; }
+
+    .contact-row { grid-template-columns: 1fr; gap: 12px; }
+
+    h2 { font-size: 1.5rem !important; }
+    .section-num { font-size: 0.7rem; }
+    .divider { margin: 16px 0 32px; }
   }
 </style>
 </head>
@@ -367,14 +395,14 @@
     <p class="section-num sans reveal">目录</p>
     <h2 class="reveal" style="margin-bottom:40px;">关于我，三分钟看完</h2>
 
-    <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;">
+    <div class="reveal overview-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;">
 
       <!-- 个人背景 -->
       <div style="background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;">
         <p style="font-family:'PingFang SC',sans-serif;font-size:0.75rem;color:var(--ink3);letter-spacing:0.08em;margin-bottom:8px;">个人背景</p>
         <p style="font-size:1rem;line-height:1.8;color:var(--ink2);">
           广东财经大学<br>汉语言文学 · GPA 3.84<br>
-          院长奖学金（前 1%）<br>英语六级 · 高中语文教资<br>
+          院长奖学金（前 1%）<br>英语六级<br>
           广州 · 随时到岗
         </p>
       </div>
