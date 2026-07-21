@@ -3,472 +3,441 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>罗楚婷 | Personal Site</title>
-<meta name="description" content="罗楚婷 — AI-native 运营实践者。14万+浏览产品创造者，数据驱动增长。">
+<title>罗楚婷 · Personal</title>
+<meta name="description" content="罗楚婷 — AI-native 运营实践者。14万浏览产品创造者，数据驱动增长。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  /* ===== Reset & Base ===== */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --bg: #faf9f8;
-    --surface: #ffffff;
-    --border: #e8e5e4;
-    --text: #1a1817;
-    --text2: #6b6562;
-    --text3: #a09894;
-    --accent: #6b7f94;
-    --accent-dark: #4a5d6f;
-    --accent-light: #ecf0f3;
-    --shadow: 0 2px 16px rgba(0,0,0,0.05);
-    --shadow-lg: 0 12px 40px rgba(0,0,0,0.08);
-    --radius: 12px;
-    --max-w: 1000px;
-    --transition: 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+    --ivory: #FEFCF9;
+    --ivory2: #F9F6F0;
+    --white: #FFFFFF;
+    --ink: #1a1a1a;
+    --ink2: #5e5e5e;
+    --ink3: #969696;
+    --line: #e8e3db;
+    --line2: #f0ebe3;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+    --shadow: 0 4px 20px rgba(0,0,0,0.06);
+    --shadow-lg: 0 16px 48px rgba(0,0,0,0.09);
+    --radius: 10px;
+    --transition: 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
   }
 
-  html { scroll-behavior: smooth; scroll-snap-type: y proximity; }
+  html { scroll-behavior: smooth; }
 
   body {
-    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", -apple-system, sans-serif;
-    background: var(--bg); color: var(--text); line-height: 1.75;
-    -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    font-family: "Noto Serif SC", "STSong", "Songti SC", "SimSun", "Songti", serif;
+    background: var(--ivory); color: var(--ink); line-height: 1.85;
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
   }
 
   /* ===== Typography ===== */
-  h1 { font-size: clamp(2.8rem, 6vw, 4rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; }
-  h2 { font-size: clamp(1.5rem, 3vw, 1.8rem); font-weight: 600; letter-spacing: -0.01em; }
-  h3 { font-size: 1.15rem; font-weight: 600; }
-  .serif { font-family: "Noto Serif SC", "STSong", "Songti SC", "SimSun", serif; }
+  h1 { font-size: clamp(2.6rem, 5.5vw, 3.6rem); font-weight: 600; letter-spacing: 0.02em; line-height: 1.25; }
+  h2 { font-size: clamp(1.5rem, 3vw, 1.8rem); font-weight: 600; letter-spacing: 0.03em; }
+  h3 { font-size: 1.15rem; font-weight: 600; letter-spacing: 0.02em; }
+  p { font-size: 0.95rem; }
+  .sans { font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", -apple-system, sans-serif; }
 
   /* ===== Layout ===== */
-  .container { max-width: var(--max-w); margin: 0 auto; padding: 0 28px; }
+  .container { max-width: 960px; margin: 0 auto; padding: 0 32px; }
 
-  section { min-height: 100vh; display: flex; align-items: center; position: relative; scroll-snap-align: start; }
-  section.full { padding: 100px 0; }
+  section { padding: 100px 0; }
 
-  .section-tag { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 12px; }
+  .section-num { font-family: "PingFang SC", sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em; color: var(--ink3); margin-bottom: 12px; }
 
-  /* ===== Side Dots Nav ===== */
-  .side-nav { position: fixed; right: 28px; top: 50%; transform: translateY(-50%); z-index: 100; display: flex; flex-direction: column; gap: 14px; }
-  .side-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--text3); transition: all var(--transition); cursor: pointer; border: none; }
-  .side-dot:hover, .side-dot.active { background: var(--accent); transform: scale(1.4); }
-  .side-dot.active { box-shadow: 0 0 0 4px var(--accent-light); }
+  .divider { width: 40px; height: 2px; background: var(--line); margin: 24px 0 48px; }
+
+  /* ===== Top Bar ===== */
+  .topbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(254, 252, 249, 0.8); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line2); padding: 0 32px;
+    display: flex; align-items: center; justify-content: space-between; height: 52px;
+  }
+  .topbar-name { font-weight: 600; font-size: 0.95rem; letter-spacing: 0.04em; }
+  .topbar-links { display: flex; gap: 28px; list-style: none; font-family: "PingFang SC", sans-serif; font-size: 0.85rem; }
+  .topbar-links a { color: var(--ink2); text-decoration: none; transition: color 0.2s; }
+  .topbar-links a:hover { color: var(--ink); }
+  .menu-btn { display: none; background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--ink); }
 
   /* ===== Hero ===== */
-  .hero-content { max-width: 700px; }
-  .hero-content h1 { margin-bottom: 20px; }
-  .hero-content h1 .em { color: var(--accent); }
-  .hero-desc { font-size: 1.15rem; color: var(--text2); max-width: 500px; margin-bottom: 36px; line-height: 1.8; }
+  .hero { padding: 160px 0 80px; }
+  .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+  .hero h1 { margin-bottom: 24px; }
+  .hero-intro { font-size: 1.05rem; color: var(--ink2); line-height: 2; max-width: 440px; }
+  .hero-intro em { font-style: normal; color: var(--ink); font-weight: 500; }
 
-  .hero-stats { display: flex; gap: 40px; margin-bottom: 40px; }
-  .hero-stat .n { font-size: 2.2rem; font-weight: 700; color: var(--accent); letter-spacing: -0.02em; }
-  .hero-stat .l { font-size: 0.85rem; color: var(--text3); }
+  .info-list { display: flex; flex-direction: column; gap: 16px; }
+  .info-row { display: flex; align-items: baseline; gap: 16px; padding-bottom: 14px; border-bottom: 1px solid var(--line2); }
+  .info-label { font-family: "PingFang SC", sans-serif; font-size: 0.78rem; color: var(--ink3); letter-spacing: 0.06em; min-width: 72px; }
+  .info-value { font-size: 0.95rem; }
 
-  .scroll-hint { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--text3); font-size: 0.78rem; letter-spacing: 0.1em; animation: float 2.5s ease-in-out infinite; }
-  @keyframes float { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
-
-  /* ===== About ===== */
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-  .about-text p { color: var(--text2); font-size: 1rem; margin-bottom: 16px; line-height: 1.9; }
-  .about-text .highlight { color: var(--accent); font-weight: 600; }
-  .about-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
-  .about-tag { background: var(--accent-light); color: var(--accent-dark); padding: 6px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 500; }
-
-  /* ===== Cards ===== */
-  .card {
-    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 36px 32px; transition: all var(--transition); position: relative;
-  }
-  .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: #d5d0ce; }
-
-  .card-metrics { display: flex; gap: 28px; margin: 18px 0; padding: 14px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-  .card-metric .v { font-size: 1.4rem; font-weight: 700; color: var(--accent); }
-  .card-metric .l { font-size: 0.78rem; color: var(--text3); }
-
-  .card.featured { grid-column: 1 / -1; }
-  .card.featured::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), #9bb0c0); border-radius: 3px 3px 0 0; }
-
-  .tag { background: var(--accent-light); color: var(--accent-dark); font-size: 0.78rem; padding: 4px 10px; border-radius: 12px; font-weight: 500; }
-  .tag.dark { background: var(--accent); color: #fff; }
-
-  /* ===== Gallery Horizontal Scroll ===== */
-  .gallery-wrapper { overflow-x: auto; overflow-y: hidden; white-space: nowrap; cursor: grab; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding: 20px 0 30px; }
-  .gallery-wrapper::-webkit-scrollbar { height: 4px; }
-  .gallery-wrapper::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
-  .gallery-wrapper:active { cursor: grabbing; }
-
-  .gallery-item {
-    display: inline-block; width: 280px; margin-right: 16px; scroll-snap-align: start;
-    border-radius: var(--radius); overflow: hidden; transition: all var(--transition);
-    box-shadow: var(--shadow); flex-shrink: 0;
-  }
-  .gallery-item:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-  .gallery-item img { width: 100%; height: 360px; object-fit: cover; display: block; }
-
-  /* ===== Lightbox ===== */
-  .lightbox { display: none; position: fixed; inset: 0; z-index: 300; background: rgba(10,10,10,0.92); align-items: center; justify-content: center; padding: 40px; }
-  .lightbox.open { display: flex; }
-  .lightbox img { max-width: 88vw; max-height: 85vh; border-radius: 8px; object-fit: contain; }
-  .lb-close { position: absolute; top: 24px; right: 28px; background: none; border: none; color: #fff; font-size: 2.2rem; cursor: pointer; }
-  .lb-prev, .lb-next { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.1); border: none; color: #fff; font-size: 2.4rem; cursor: pointer; padding: 18px 14px; border-radius: 8px; transition: background 0.2s; }
-  .lb-prev:hover, .lb-next:hover { background: rgba(255,255,255,0.22); }
-  .lb-prev { left: 20px; } .lb-next { right: 20px; }
+  .hero-stats { display: flex; gap: 36px; margin-top: 36px; }
+  .hero-stat .val { font-size: 2rem; font-weight: 600; letter-spacing: -0.01em; }
+  .hero-stat .lbl { font-family: "PingFang SC", sans-serif; font-size: 0.8rem; color: var(--ink3); margin-top: 2px; }
 
   /* ===== Skills ===== */
-  .skills-flex { display: flex; flex-wrap: wrap; gap: 12px; }
-  .skill-pill {
-    background: var(--surface); border: 1px solid var(--border); color: var(--text);
-    padding: 10px 20px; border-radius: 24px; font-size: 0.9rem; transition: all var(--transition);
+  .skills-group { margin-bottom: 40px; }
+  .skills-group h3 { margin-bottom: 16px; font-family: "PingFang SC", sans-serif; font-size: 0.82rem; color: var(--ink3); letter-spacing: 0.08em; text-transform: uppercase; }
+  .skills-row { display: flex; flex-wrap: wrap; gap: 10px; }
+
+  .skill-tag {
+    display: inline-block; background: var(--white); border: 1px solid var(--line);
+    padding: 8px 18px; border-radius: 24px; font-size: 0.88rem; transition: all var(--transition);
+    font-family: "PingFang SC", sans-serif;
   }
-  .skill-pill:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
-  .skill-pill.pri { background: var(--accent-light); border-color: transparent; color: var(--accent-dark); font-weight: 600; }
+  .skill-tag:hover { border-color: var(--ink3); transform: translateY(-2px); }
+  .skill-tag.hl { background: var(--ink); color: var(--ivory); border-color: var(--ink); }
 
-  /* ===== Timeline ===== */
-  .timeline { position: relative; padding-left: 28px; }
-  .timeline::before { content: ''; position: absolute; left: 6px; top: 6px; bottom: 6px; width: 2px; background: var(--border); }
-  .tl-item { position: relative; margin-bottom: 32px; }
-  .tl-dot { position: absolute; left: -27px; top: 5px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 3px solid var(--bg); box-shadow: 0 0 0 2px var(--border); }
-  .tl-head { display: flex; gap: 16px; align-items: baseline; flex-wrap: wrap; margin-bottom: 8px; }
-  .tl-role { font-weight: 700; }
-  .tl-org { color: var(--accent); font-weight: 600; }
-  .tl-date { color: var(--text3); font-size: 0.85rem; }
-  .tl-item ul { padding-left: 18px; color: var(--text2); font-size: 0.9rem; }
-  .tl-item li { margin-bottom: 6px; }
-  .tl-item li::marker { color: var(--accent); }
+  /* ===== Projects Grid ===== */
+  .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 
-  /* ===== Contact ===== */
-  .contact-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .contact-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 24px; text-align: center; transition: all var(--transition); }
-  .contact-card:hover { border-color: var(--accent); transform: translateY(-2px); }
-  .contact-card .icon { font-size: 1.4rem; margin-bottom: 8px; }
-  .contact-card .label { font-size: 0.75rem; color: var(--text3); margin-bottom: 2px; }
-  .contact-card .value { font-weight: 600; }
+  .project-card {
+    background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 36px 32px; position: relative; overflow: hidden;
+    transition: all var(--transition); cursor: default;
+  }
+  .project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: #d5cfc6;
+  }
+  .project-card:hover .project-icon { transform: scale(1.08); }
+  .project-card.main { grid-column: 1 / -1; }
+  .project-card.main::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--ink); }
+
+  .project-icon { font-size: 1.5rem; display: inline-block; margin-bottom: 14px; transition: transform 0.4s ease; }
+  .project-card h3 { margin-bottom: 8px; }
+  .project-card .desc { color: var(--ink2); font-size: 0.9rem; line-height: 1.75; }
+
+  .project-metrics { display: flex; gap: 32px; margin: 20px 0; padding: 16px 0; border-top: 1px solid var(--line2); border-bottom: 1px solid var(--line2); }
+  .project-metric .v { font-size: 1.5rem; font-weight: 600; }
+  .project-metric .l { font-family: "PingFang SC", sans-serif; font-size: 0.75rem; color: var(--ink3); }
+
+  .project-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+  .project-tags span {
+    font-family: "PingFang SC", sans-serif; font-size: 0.75rem; padding: 3px 10px;
+    border-radius: 12px; background: var(--ivory2); color: var(--ink2);
+  }
+  .project-tags span.primary { background: var(--ink); color: var(--ivory); }
+
+  /* ===== Gallery ===== */
+  .gallery-wrap { overflow-x: auto; overflow-y: hidden; white-space: nowrap; cursor: grab; scroll-snap-type: x mandatory; padding: 16px 0 28px; }
+  .gallery-wrap::-webkit-scrollbar { height: 3px; }
+  .gallery-wrap::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }
+  .gallery-wrap:active { cursor: grabbing; }
+
+  .gallery-card {
+    display: inline-block; width: 260px; margin-right: 18px; scroll-snap-align: start;
+    border-radius: var(--radius); overflow: hidden; transition: all var(--transition);
+    box-shadow: var(--shadow-sm); flex-shrink: 0;
+  }
+  .gallery-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+  .gallery-card img { width: 100%; height: 340px; object-fit: cover; display: block; }
+
+  /* ===== Lightbox ===== */
+  .lb { display: none; position: fixed; inset: 0; z-index: 300; background: rgba(12,12,12,0.94); align-items: center; justify-content: center; padding: 40px; }
+  .lb.open { display: flex; }
+  .lb img { max-width: 88vw; max-height: 84vh; border-radius: 6px; object-fit: contain; }
+  .lb-x { position: absolute; top: 24px; right: 32px; background: none; border: none; color: #fff; font-size: 2rem; cursor: pointer; }
+  .lb-a { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.08); border: none; color: #fff; font-size: 2.2rem; cursor: pointer; padding: 16px 12px; border-radius: 6px; transition: background 0.2s; }
+  .lb-a:hover { background: rgba(255,255,255,0.2); }
+  .lb-prev { left: 16px; } .lb-next { right: 16px; }
 
   /* ===== Footer ===== */
-  footer { text-align: center; padding: 40px 0; border-top: 1px solid var(--border); color: var(--text3); font-size: 0.82rem; }
+  footer { padding: 48px 0; border-top: 1px solid var(--line); text-align: center; font-family: "PingFang SC", sans-serif; color: var(--ink3); font-size: 0.8rem; }
 
-  /* ===== Reveal Animations ===== */
-  .reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.8s ease, transform 0.8s ease; }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
+  /* ===== Reveal ===== */
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.on { opacity: 1; transform: translateY(0); }
 
-  /* ===== Vibe Coding Badge ===== */
-  .vibe-badge {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: #1a1817; color: #faf9f8; font-size: 0.78rem;
-    padding: 8px 16px; border-radius: 24px; font-weight: 500;
+  /* ===== Vibe Badge ===== */
+  .vibe-tag {
     position: fixed; bottom: 24px; left: 24px; z-index: 100;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15); animation: fadeInUp 1s ease 0.5s both;
+    background: var(--ink); color: var(--ivory); font-family: "PingFang SC", sans-serif;
+    font-size: 0.75rem; padding: 8px 14px; border-radius: 20px; letter-spacing: 0.04em;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12); animation: appear 1s ease 0.6s both;
   }
-  @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-  .vibe-badge .spark { font-size: 0.9rem; }
+  @keyframes appear { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 
-  /* ===== Mobile ===== */
+  /* ===== Responsive ===== */
   @media (max-width: 768px) {
-    section { min-height: auto; padding: 64px 0; }
-    section.full { padding: 64px 0; }
-    .side-nav { right: 12px; gap: 10px; }
-    .side-dot { width: 8px; height: 8px; }
+    section { padding: 64px 0; }
+    .hero { padding: 120px 0 48px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-intro { max-width: 100%; }
     .hero-stats { gap: 20px; }
-    .about-grid { grid-template-columns: 1fr; gap: 32px; }
-    .contact-row { grid-template-columns: 1fr; }
-    .gallery-item { width: 220px; }
-    .gallery-item img { height: 280px; }
-    .card.featured { grid-column: 1; }
-    .scroll-hint { display: none; }
-  }
 
-  @media (min-width: 769px) {
-    .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card.main { grid-column: 1; }
+    .project-metrics { gap: 18px; }
+
+    .gallery-card { width: 200px; }
+    .gallery-card img { height: 260px; }
+
+    .topbar-links { display: none; position: fixed; top: 52px; left: 0; right: 0;
+      background: rgba(254, 252, 249, 0.95); flex-direction: column; padding: 20px 32px;
+      border-bottom: 1px solid var(--line); gap: 16px; backdrop-filter: blur(12px);
+    }
+    .topbar-links.open { display: flex; }
+    .menu-btn { display: block; }
+
+    .info-list { gap: 12px; }
+    .info-row { flex-direction: column; gap: 4px; }
+    .container { padding: 0 24px; }
   }
 </style>
 </head>
 <body>
 
-<!-- ===== Side Nav ===== -->
-<nav class="side-nav" id="sideNav">
-  <button class="side-dot active" data-target="hero" title="首页"></button>
-  <button class="side-dot" data-target="about" title="关于"></button>
-  <button class="side-dot" data-target="projects" title="项目"></button>
-  <button class="side-dot" data-target="gallery" title="作品"></button>
-  <button class="side-dot" data-target="skills" title="技能"></button>
-  <button class="side-dot" data-target="contact" title="联系"></button>
-</nav>
+<!-- Top Bar -->
+<header class="topbar">
+  <span class="topbar-name">罗楚婷</span>
+  <button class="menu-btn" id="menuBtn" aria-label="菜单">☰</button>
+  <ul class="topbar-links" id="menu">
+    <li><a href="#skills">技能</a></li>
+    <li><a href="#projects">项目</a></li>
+    <li><a href="#gallery">作品</a></li>
+    <li><a href="#contact">联系</a></li>
+  </ul>
+</header>
 
 <!-- ===== Hero ===== -->
-<section id="hero" style="min-height:100vh;">
+<section class="hero" id="hero">
   <div class="container">
-    <div class="hero-content">
-      <p class="section-tag reveal" style="transition-delay: 0.05s;">Personal Site · 2026</p>
-      <h1 class="reveal" style="transition-delay: 0.1s;">你好，我是<span class="em">罗楚婷</span></h1>
-      <p class="hero-desc reveal" style="transition-delay: 0.2s;">
-        汉语言文学出身，<strong>AI-native 运营实践者</strong>。<br>
-        独立用 AI 从零开发产品，14 万浏览 · 3000+ 用户。<br>
-        相信运营的本质是：看数据、找问题、持续迭代。
-      </p>
-      <div class="hero-stats reveal" style="transition-delay: 0.3s;">
-        <div class="hero-stat"><div class="n">14万+</div><div class="l">产品浏览</div></div>
-        <div class="hero-stat"><div class="n">3000+</div><div class="l">真实用户</div></div>
-        <div class="hero-stat"><div class="n">100%</div><div class="l">服务满意度</div></div>
+    <div class="hero-grid">
+      <div>
+        <h1 class="reveal">罗楚婷</h1>
+        <p class="hero-intro reveal">
+          广东财经大学汉语言文学专业毕业，<em>GPA 3.84</em>，院长奖学金获得者。<br><br>
+          一年教培经历让我深刻理解了一件事：<em>教学本质上是在"销售"一个学习产品</em>——从需求诊断到产品匹配，从效果交付到用户续费，每个环节都是运营。<br><br>
+          2026 年用 AI 从零开发了一款数据型产品，获得 <em>14 万次浏览</em>与 <em>3000+ 用户</em>的真实验证。现在，准备把数据思维与 AI 能力带到跨境电商运营领域。
+        </p>
+        <div class="hero-stats reveal">
+          <div class="hero-stat"><div class="val">14万+</div><div class="lbl">产品浏览</div></div>
+          <div class="hero-stat"><div class="val">3000+</div><div class="lbl">真实用户</div></div>
+          <div class="hero-stat"><div class="val">100%</div><div class="lbl">服务满意度</div></div>
+        </div>
+      </div>
+      <div class="info-list reveal">
+        <div class="info-row"><span class="info-label sans">教育</span><span class="info-value">广东财经大学 · 汉语言文学 · 2025 届</span></div>
+        <div class="info-row"><span class="info-label sans">成绩</span><span class="info-value">GPA 3.84 / 5.0 · 专业前 10%</span></div>
+        <div class="info-row"><span class="info-label sans">荣誉</span><span class="info-value">院长奖学金（前 1%）· 学业优秀奖 · 自强不息奖 · 社会公益奖</span></div>
+        <div class="info-row"><span class="info-label sans">语言</span><span class="info-value">英语六级 · 基础英文读写与 Listing 撰写</span></div>
+        <div class="info-row"><span class="info-label sans">资格</span><span class="info-value">高级中学语文教师资格证</span></div>
+        <div class="info-row"><span class="info-label sans">城市</span><span class="info-value">广东 · 广州</span></div>
+        <div class="info-row"><span class="info-label sans">状态</span><span class="info-value">2025 届应届生（未缴社保）· 随时到岗</span></div>
       </div>
     </div>
   </div>
-  <div class="scroll-hint">↓ 了解更多</div>
 </section>
 
-<!-- ===== About ===== -->
-<section id="about" class="full">
+<!-- ===== Skills ===== -->
+<section id="skills">
   <div class="container">
-    <div class="about-grid">
-      <div>
-        <p class="section-tag reveal">关于我</p>
-        <h2 class="reveal">22岁，正在定义<br>自己的职业路径</h2>
+    <p class="section-num sans reveal">01</p>
+    <h2 class="reveal">技能</h2>
+    <div class="divider reveal"></div>
+
+    <div class="skills-group reveal">
+      <h3 class="sans">核心能力</h3>
+      <div class="skills-row">
+        <span class="skill-tag hl">AI 编程开发</span>
+        <span class="skill-tag hl">AI 视频生成</span>
+        <span class="skill-tag hl">数据驱动运营</span>
+        <span class="skill-tag hl">产品策划</span>
       </div>
-      <div class="about-text reveal">
-        <p>
-          <span class="highlight">广东财经大学</span>汉语言文学本科，GPA 3.84 / 5.0，专业前 10%。
-          获<span class="highlight">院长奖学金</span>（全学院前 1%）、学业优秀奖、自强不息奖、社会公益奖。
-        </p>
-        <p>
-          一年教培经验，从语文地理被调至数学化学，<span class="highlight">零带教独立教研</span>，
-          实现学生提分 20-30 分、续课率超机构均值 25%、服务满意度 100%。
-        </p>
-        <p>
-          2026 年用 AI 独立开发数据型网站，上线 14 万浏览 · 3000+ 用户。正在寻找跨境电商运营机会，
-          用数据思维和 AI 能力驱动增长。
-        </p>
-        <div class="about-tags">
-          <span class="about-tag">🎓 广东财经大学</span>
-          <span class="about-tag">📚 GPA 3.84</span>
-          <span class="about-tag">🏅 院长奖学金</span>
-          <span class="about-tag">🇬🇧 英语六级</span>
-          <span class="about-tag">📝 高中语文教资</span>
-          <span class="about-tag">📍 广州</span>
-        </div>
+    </div>
+
+    <div class="skills-group reveal">
+      <h3 class="sans">工具与平台</h3>
+      <div class="skills-row">
+        <span class="skill-tag">Claude / AI Coding</span>
+        <span class="skill-tag">可灵 AI</span>
+        <span class="skill-tag">Excel 数据分析</span>
+        <span class="skill-tag">Word · PPT</span>
+        <span class="skill-tag">Procreate 设计</span>
+        <span class="skill-tag">GitHub Pages</span>
+        <span class="skill-tag">百度统计</span>
+        <span class="skill-tag">微信公众号</span>
+        <span class="skill-tag">小红书运营</span>
+      </div>
+    </div>
+
+    <div class="skills-group reveal">
+      <h3 class="sans">内容与语言</h3>
+      <div class="skills-row">
+        <span class="skill-tag">文案撰写</span>
+        <span class="skill-tag">Listing 优化</span>
+        <span class="skill-tag">内容策划</span>
+        <span class="skill-tag">英语六级</span>
+        <span class="skill-tag">学术写作</span>
+        <span class="skill-tag">PRD 文档</span>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ===== Projects ===== -->
-<section id="projects" class="full">
+<section id="projects">
   <div class="container">
-    <p class="section-tag reveal">项目经历</p>
-    <h2 class="reveal" style="margin-bottom: 40px;">AI 驱动 · 数据验证</h2>
+    <p class="section-num sans reveal">02</p>
+    <h2 class="reveal">项目经历</h2>
+    <div class="divider reveal"></div>
 
     <div class="projects-grid">
-      <!-- Featured -->
-      <div class="card featured reveal">
-        <h3>🚀 AI 独立开发 · 数据型网站</h3>
-        <div class="card-metrics">
-          <div class="card-metric"><div class="v">14万+</div><div class="l">页面浏览</div></div>
-          <div class="card-metric"><div class="v">3000+</div><div class="l">真实用户</div></div>
-          <div class="card-metric"><div class="v">124所</div><div class="l">高校数据</div></div>
-          <div class="card-metric"><div class="v">16维</div><div class="l">数据维度</div></div>
+
+      <!-- Main: AI Website -->
+      <div class="project-card main reveal">
+        <span class="project-icon">✦</span>
+        <h3>AI 数据型产品 · 独立开发</h3>
+        <div class="project-metrics">
+          <div class="project-metric"><div class="v">14万+</div><div class="l">页面浏览</div></div>
+          <div class="project-metric"><div class="v">3000+</div><div class="l">真实用户</div></div>
+          <div class="project-metric"><div class="v">124 所</div><div class="l">高校数据</div></div>
+          <div class="project-metric"><div class="v">16 维</div><div class="l">数据结构</div></div>
         </div>
-        <p style="color:var(--text2);font-size:0.92rem;line-height:1.8;">
-          使用 AI 编程工具从零独立完成全流程：需求调研 → 数据库搭建 → 评分算法设计 → GitHub Pages 部署 → 百度统计追踪。
-          整合 124 所高校 16 个维度的结构化数据，设计冲/稳/保三级梯度推荐算法。零推广成本，
-          纯靠产品力获得 14 万浏览与 3000+ 用户。
+        <p class="desc">
+          使用 AI 编程工具从零完成产品全流程：需求调研 → 数据库搭建 → 评分算法设计 → 线上部署 → 用户数据追踪。整合 124 所高校 16 个维度的结构化数据，设计冲/稳/保三级梯度推荐算法。零推广成本，纯产品力驱动 14 万浏览与 3000+ 用户。<strong>完整验证了「数据驱动增长」的产品运营逻辑。</strong>
         </p>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;">
-          <span class="tag dark">AI 编程</span><span class="tag dark">数据算法</span>
-          <span class="tag">用户增长</span><span class="tag">数据追踪</span><span class="tag">产品迭代</span>
+        <div class="project-tags">
+          <span class="primary">AI 编程</span><span class="primary">数据算法</span>
+          <span>用户增长</span><span>数据追踪</span><span>产品迭代</span>
         </div>
       </div>
 
-      <div class="card reveal">
-        <h3>📱 小红书内容运营</h3>
-        <div class="card-metrics"><div class="card-metric"><div class="v">1500+</div><div class="l">真实粉丝</div></div></div>
-        <p style="color:var(--text2);font-size:0.92rem;">
-          独立运营个人账号，全流程把控选题、标题、封面与发布节奏。理解内容分发逻辑——标题决定打开率，内容决定转化率，与电商 Listing 优化逻辑高度一致。
+      <!-- Product Planning: Summer Program -->
+      <div class="project-card reveal">
+        <span class="project-icon">◈</span>
+        <h3>暑期班 · 产品策划</h3>
+        <p class="desc">
+          教培的本质是<strong>售卖一个学习产品</strong>。我主动发现机构暑期业务空缺，独立完成市场调研（历史招生数据复盘）→ 产品设计（课程体系与定价策略）→ 运营方案（招生排期与人力配置）→ 财务测算（保守/正常双档营收模型）的全套产品策划。产出 PRD + 运营方案 + PPT + 排版 PDF，方案已获机构采纳。
         </p>
-        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;"><span class="tag">内容策划</span><span class="tag">用户增长</span></div>
+        <div class="project-tags">
+          <span class="primary">产品策划</span><span class="primary">运营方案</span>
+          <span>市场调研</span><span>财务测算</span><span>PRD</span>
+        </div>
       </div>
 
-      <div class="card reveal">
-        <h3>📊 暑期班运营方案</h3>
-        <p style="color:var(--text2);font-size:0.92rem;">
-          主动发现机构业务空缺，独立产出 PRD + 运营方案 + 财务测算 + PPT 全套交付物。基于历史招生数据做营收预估模型，设计定价策略与课程排期。
+      <!-- Xiaohongshu -->
+      <div class="project-card reveal">
+        <span class="project-icon">◇</span>
+        <h3>小红书内容运营</h3>
+        <div class="project-metrics">
+          <div class="project-metric"><div class="v">1500+</div><div class="l">真实粉丝</div></div>
+        </div>
+        <p class="desc">
+          独立运营个人账号，全流程把控选题策划、标题撰写、封面设计、发布时间。理解内容分发逻辑——<strong>标题决定打开率，内容决定转化率，封面决定点击率</strong>——与电商 Listing 优化逻辑高度一致。
         </p>
-        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;"><span class="tag">运营策划</span><span class="tag">项目管理</span></div>
+        <div class="project-tags">
+          <span>内容策划</span><span>用户增长</span><span>数据复盘</span>
+        </div>
       </div>
 
-      <div class="card reveal">
-        <h3>🧠 古诗记忆闪卡 · 产品设计</h3>
-        <p style="color:var(--text2);font-size:0.92rem;">
-          从考研学习痛点出发，设计基于艾宾浩斯遗忘曲线算法的复习排期工具，含三种记忆模式。完成 33KB 完整 PRD，含数据结构、页面路由、技术方案。
+      <!-- Mini Program -->
+      <div class="project-card reveal">
+        <span class="project-icon">◎</span>
+        <h3>古诗记忆闪卡 · 产品设计</h3>
+        <p class="desc">
+          从考研学习痛点出发，设计基于<strong>艾宾浩斯遗忘曲线算法</strong>的复习排期工具，含三种记忆模式与 14 项补充功能。独立完成 33KB 完整 PRD 文档，涵盖数据结构设计、页面路由规划与技术方案选型。
         </p>
-        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;"><span class="tag">产品设计</span><span class="tag">PRD</span></div>
+        <div class="project-tags">
+          <span>产品设计</span><span>算法逻辑</span><span>PRD</span><span>用户体验</span>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
 
 <!-- ===== Design Gallery ===== -->
-<section id="gallery" class="full">
-  <div class="container" style="width:100%;">
-    <p class="section-tag reveal">设计作品</p>
-    <h2 class="reveal" style="margin-bottom: 8px;">Procreate 视觉设计</h2>
-    <p class="reveal" style="color:var(--text3);font-size:0.9rem;margin-bottom:28px;">点击图片放大浏览 · 左右拖动查看更多</p>
+<section id="gallery">
+  <div class="container" style="width:100%; max-width:1100px;">
+    <p class="section-num sans reveal">03</p>
+    <h2 class="reveal">视觉设计</h2>
+    <p class="reveal" style="color:var(--ink3);font-size:0.88rem;margin-top:6px;margin-bottom:4px;">Procreate 数字绘画 · 点击放大浏览 · 左右滑动查看更多</p>
+    <div class="divider reveal"></div>
 
-    <div class="gallery-wrapper reveal" id="galleryScroll">
-      <div class="gallery-item" data-idx="0"><img src="images/design-01.jpg" alt="设计作品 01" loading="lazy"></div>
-      <div class="gallery-item" data-idx="1"><img src="images/design-02.jpg" alt="设计作品 02" loading="lazy"></div>
-      <div class="gallery-item" data-idx="2"><img src="images/design-03.jpg" alt="设计作品 03" loading="lazy"></div>
-      <div class="gallery-item" data-idx="3"><img src="images/design-04.jpg" alt="设计作品 04" loading="lazy"></div>
-      <div class="gallery-item" data-idx="4"><img src="images/design-05.jpg" alt="设计作品 05" loading="lazy"></div>
-      <div class="gallery-item" data-idx="5"><img src="images/design-06.jpg" alt="设计作品 06" loading="lazy"></div>
-      <div class="gallery-item" data-idx="6"><img src="images/design-07.jpg" alt="设计作品 07" loading="lazy"></div>
-      <div class="gallery-item" data-idx="7"><img src="images/design-08.jpg" alt="设计作品 08" loading="lazy"></div>
-      <div class="gallery-item" data-idx="8"><img src="images/design-09.jpg" alt="设计作品 09" loading="lazy"></div>
-      <div class="gallery-item" data-idx="9"><img src="images/design-10.jpg" alt="设计作品 10" loading="lazy"></div>
-      <div class="gallery-item" data-idx="10"><img src="images/design-11.jpg" alt="设计作品 11" loading="lazy"></div>
+    <div class="gallery-wrap reveal" id="galleryScroll">
+      <div class="gallery-card" data-idx="0"><img src="images/design-01.jpg" alt="设计作品 01" loading="lazy"></div>
+      <div class="gallery-card" data-idx="1"><img src="images/design-02.jpg" alt="设计作品 02" loading="lazy"></div>
+      <div class="gallery-card" data-idx="2"><img src="images/design-03.jpg" alt="设计作品 03" loading="lazy"></div>
+      <div class="gallery-card" data-idx="3"><img src="images/design-04.jpg" alt="设计作品 04" loading="lazy"></div>
+      <div class="gallery-card" data-idx="4"><img src="images/design-05.jpg" alt="设计作品 05" loading="lazy"></div>
+      <div class="gallery-card" data-idx="5"><img src="images/design-06.jpg" alt="设计作品 06" loading="lazy"></div>
+      <div class="gallery-card" data-idx="6"><img src="images/design-07.jpg" alt="设计作品 07" loading="lazy"></div>
+      <div class="gallery-card" data-idx="7"><img src="images/design-08.jpg" alt="设计作品 08" loading="lazy"></div>
+      <div class="gallery-card" data-idx="8"><img src="images/design-09.jpg" alt="设计作品 09" loading="lazy"></div>
+      <div class="gallery-card" data-idx="9"><img src="images/design-10.jpg" alt="设计作品 10" loading="lazy"></div>
+      <div class="gallery-card" data-idx="10"><img src="images/design-11.jpg" alt="设计作品 11" loading="lazy"></div>
     </div>
   </div>
 
   <!-- Lightbox -->
-  <div class="lightbox" id="lb">
-    <button class="lb-close" id="lbClose">✕</button>
-    <button class="lb-prev" id="lbPrev">‹</button>
+  <div class="lb" id="lb">
+    <button class="lb-x" id="lbClose">✕</button>
+    <button class="lb-a lb-prev" id="lbPrev">‹</button>
     <img src="" alt="" id="lbImg">
-    <button class="lb-next" id="lbNext">›</button>
-  </div>
-</section>
-
-<!-- ===== Skills + Experience ===== -->
-<section id="skills" class="full">
-  <div class="container">
-    <p class="section-tag reveal">技能与经历</p>
-
-    <!-- Skills -->
-    <h2 class="reveal">能立刻上手的</h2>
-    <div class="skills-flex reveal" style="margin-bottom:56px;">
-      <span class="skill-pill pri">AI 编程 (Claude)</span>
-      <span class="skill-pill pri">AI 视频生成 (可灵)</span>
-      <span class="skill-pill pri">数据驱动运营</span>
-      <span class="skill-pill">英语六级</span>
-      <span class="skill-pill">英文 Listing 撰写</span>
-      <span class="skill-pill">小红书运营</span>
-      <span class="skill-pill">内容策划</span>
-      <span class="skill-pill">文案写作</span>
-      <span class="skill-pill">用户行为分析</span>
-      <span class="skill-pill">Word · Excel · PPT</span>
-      <span class="skill-pill">Procreate 视觉设计</span>
-      <span class="skill-pill">GitHub Pages</span>
-    </div>
-
-    <!-- Experience -->
-    <h2 class="reveal">工作经历</h2>
-    <div class="timeline reveal" style="margin-top:28px;">
-      <div class="tl-item">
-        <div class="tl-dot"></div>
-        <div class="tl-head">
-          <span class="tl-role">学科教师</span>
-          <span class="tl-org">禧阅教育培训有限公司</span>
-          <span class="tl-date">2025.05 – 2026.06</span>
-        </div>
-        <ul>
-          <li>负责 10 人小班及一对一教学，独立备课教研授课全流程，覆盖初中数学、地理、化学及高中地理</li>
-          <li>拆解近 5 年中高考考点与考频，建立个性化题库，搭建"学情诊断→薄弱点突破→正向反馈"方法论</li>
-          <li>初中数学班人均提分 20-30 分；中考化学冲刺班均分提升 20 分；续课率<strong>高于机构均值 25%</strong>；满意度<strong>100%</strong>零投诉</li>
-          <li>从语文地理被调至数学化学，<strong>全程无人带教</strong>，独立跨学科教研——证明快速学习与知识迁移能力</li>
-        </ul>
-      </div>
-    </div>
+    <button class="lb-a lb-next" id="lbNext">›</button>
   </div>
 </section>
 
 <!-- ===== Contact ===== -->
-<section id="contact" style="min-height:60vh;">
-  <div class="container" style="width:100%;">
-    <p class="section-tag reveal">联系方式</p>
-    <h2 class="reveal" style="margin-bottom: 32px;">期待你的消息</h2>
+<section id="contact" style="padding-bottom:60px;">
+  <div class="container">
+    <p class="section-num sans reveal">04</p>
+    <h2 class="reveal">联系方式</h2>
+    <div class="divider reveal"></div>
 
-    <div class="contact-row reveal">
-      <div class="contact-card">
-        <div class="icon">📞</div><div class="label">电话</div>
-        <div class="value">17675637717</div>
-      </div>
-      <div class="contact-card">
-        <div class="icon">📧</div><div class="label">邮箱</div>
-        <div class="value">1822977645@qq.com</div>
-      </div>
-      <div class="contact-card">
-        <div class="icon">📍</div><div class="label">所在地</div>
-        <div class="value">广东 · 广州</div>
-      </div>
+    <div class="reveal" style="display:flex;flex-direction:column;gap:20px;font-size:1rem;">
+      <p style="color:var(--ink2);">📞 <span style="color:var(--ink);margin-left:8px;">17675637717</span></p>
+      <p style="color:var(--ink2);">📧 <span style="color:var(--ink);margin-left:8px;">1822977645@qq.com</span></p>
+      <p style="color:var(--ink2);">📍 <span style="color:var(--ink);margin-left:8px;">广东 · 广州 · 随时到岗</span></p>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="container">
-    © 2026 罗楚婷 · Built with Vibe Coding · Hosted on GitHub Pages
-  </div>
+  <div class="container">© 2026 罗楚婷 · Built with Vibe Coding · Hosted on GitHub Pages</div>
 </footer>
 
-<!-- Vibe Coding Badge -->
-<div class="vibe-badge"><span class="spark">✨</span> Built with Vibe Coding</div>
+<div class="vibe-tag">✦ Built with Vibe Coding</div>
 
-<!-- ===== JS ===== -->
 <script>
-  // Scroll reveal
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  // Reveal on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // Side nav - click to smooth scroll
-  const dots = document.querySelectorAll('.side-dot');
-  const sections = [...document.querySelectorAll('section[id]')];
-
-  dots.forEach(dot => {
-    dot.addEventListener('click', () => {
-      const target = document.getElementById(dot.dataset.target);
-      if (target) target.scrollIntoView({ behavior: 'smooth' });
-    });
-  });
-
-  // Highlight active dot on scroll
-  const obs2 = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        dots.forEach(d => d.classList.remove('active'));
-        const dot = document.querySelector(`[data-target="${e.target.id}"]`);
-        if (dot) dot.classList.add('active');
-      }
-    });
-  }, { threshold: 0.4 });
-  sections.forEach(s => obs2.observe(s));
+  // Mobile menu
+  const btn = document.getElementById('menuBtn');
+  const menu = document.getElementById('menu');
+  btn.addEventListener('click', () => { menu.classList.toggle('open'); btn.textContent = menu.classList.contains('open') ? '✕' : '☰'; });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { menu.classList.remove('open'); btn.textContent = '☰'; }));
 
   // Lightbox
-  const lb = document.getElementById('lb');
-  const lbImg = document.getElementById('lbImg');
-  const items = document.querySelectorAll('.gallery-item');
-  let curIdx = 0;
+  const lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg');
+  const cards = document.querySelectorAll('.gallery-card');
+  let idx = 0;
+  function open(i) { idx = i; lbImg.src = cards[i].querySelector('img').src; lb.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function close() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+  function prev() { open((idx - 1 + cards.length) % cards.length); }
+  function next() { open((idx + 1) % cards.length); }
 
-  function openLb(idx) {
-    curIdx = idx;
-    lbImg.src = items[idx].querySelector('img').src;
-    lb.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeLb() { lb.classList.remove('open'); document.body.style.overflow = ''; }
-  function prev() { openLb((curIdx - 1 + items.length) % items.length); }
-  function next() { openLb((curIdx + 1) % items.length); }
-
-  items.forEach(item => item.addEventListener('click', () => openLb(parseInt(item.dataset.idx))));
-  document.getElementById('lbClose').addEventListener('click', closeLb);
+  cards.forEach(c => c.addEventListener('click', () => open(parseInt(c.dataset.idx))));
+  document.getElementById('lbClose').addEventListener('click', close);
   document.getElementById('lbPrev').addEventListener('click', prev);
   document.getElementById('lbNext').addEventListener('click', next);
-  lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+  lb.addEventListener('click', e => { if (e.target === lb) close(); });
   document.addEventListener('keydown', e => {
     if (!lb.classList.contains('open')) return;
-    if (e.key === 'Escape') closeLb();
-    if (e.key === 'ArrowLeft') prev();
-    if (e.key === 'ArrowRight') next();
+    if (e.key === 'Escape') close(); if (e.key === 'ArrowLeft') prev(); if (e.key === 'ArrowRight') next();
   });
 </script>
-
 </body>
 </html>
