@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>罗楚婷 | AI-native 运营人</title>
+<meta name="description" content="罗楚婷个人主页 - AI-native运营人，数据驱动，快速学习。14万+浏览AI产品创造者。">
+<style>
+  /* ===== Reset & Base ===== */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f8faf9;
+    --surface: #ffffff;
+    --surface2: #f1f5f4;
+    --border: #e2e8e7;
+    --text: #1e293b;
+    --text2: #64748b;
+    --text3: #94a3b8;
+    --accent: #0d9488;
+    --accent2: #14b8a6;
+    --accent-light: #ccfbf4;
+    --blue: #3b82f6;
+    --green: #10b981;
+    --red: #ef4444;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+    --shadow: 0 4px 16px rgba(0,0,0,0.06);
+    --shadow-lg: 0 12px 32px rgba(0,0,0,0.08);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --max-w: 960px;
+    --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ===== Typography ===== */
+  h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; }
+  h2 { font-size: clamp(1.6rem, 3.5vw, 2rem); font-weight: 700; letter-spacing: -0.01em; }
+  h3 { font-size: 1.25rem; font-weight: 600; }
+  a { color: var(--blue); text-decoration: none; transition: color var(--transition); }
+  a:hover { color: var(--accent2); }
+
+  /* ===== Layout ===== */
+  .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+  section { padding: 80px 0; position: relative; }
+
+  .section-label {
+    font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em;
+    color: var(--accent); margin-bottom: 12px;
+  }
+
+  .section-title { margin-bottom: 48px; }
+
+  /* ===== Nav ===== */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255, 255, 255, 0.88); backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    transition: transform var(--transition);
+  }
+
+  nav .container {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 56px;
+  }
+
+  .nav-logo { font-weight: 700; font-size: 1.1rem; color: var(--text); }
+  .nav-logo span { color: var(--accent); }
+
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { color: var(--text2); font-size: 0.9rem; font-weight: 500; transition: color var(--transition); }
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-cta {
+    background: var(--accent); color: #fff !important;
+    padding: 6px 18px; border-radius: 20px; font-weight: 600 !important;
+    transition: all var(--transition);
+  }
+  .nav-cta:hover { background: var(--accent2); transform: translateY(-1px); }
+
+  .mobile-menu-btn { display: none; background: none; border: none; color: var(--text); font-size: 1.5rem; cursor: pointer; }
+
+  /* ===== Hero ===== */
+  .hero {
+    padding: 140px 0 100px;
+    background: linear-gradient(180deg, #ecfdf7 0%, #f8faf9 40%, #f8faf9 100%);
+  }
+
+  .hero .container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent-light); color: var(--accent);
+    padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 600;
+    margin-bottom: 24px;
+  }
+  .hero-badge .dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; animation: pulse-dot 2s infinite; }
+
+  @keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+  .hero h1 { margin-bottom: 16px; }
+  .hero h1 .highlight { color: var(--accent); }
+
+  .hero-desc { color: var(--text2); font-size: 1.1rem; max-width: 420px; margin-bottom: 32px; }
+
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 28px; border-radius: 28px; font-weight: 600; font-size: 0.95rem;
+    cursor: pointer; border: none; transition: all var(--transition); white-space: nowrap;
+  }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: #0f766e; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(13, 148, 136, 0.25); }
+  .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+  /* Hero stats cards */
+  .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .stat-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 28px 24px; text-align: center; transition: all var(--transition);
+  }
+  .stat-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+  .stat-card .num {
+    font-size: 2.2rem; font-weight: 800; color: var(--accent);
+  }
+  .stat-card .label { font-size: 0.88rem; color: var(--text2); margin-top: 4px; font-weight: 500; }
+
+  /* ===== Projects ===== */
+  .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+  .project-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 32px; transition: all var(--transition); position: relative; overflow: hidden;
+  }
+  .project-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+
+  .project-card.featured { grid-column: 1 / -1; }
+
+  .project-card.featured::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--accent), #34d399);
+  }
+
+  .project-icon { font-size: 1.6rem; margin-bottom: 16px; display: block; }
+
+  .project-card h3 { margin-bottom: 8px; }
+
+  .project-metrics {
+    display: flex; gap: 24px; margin: 16px 0;
+    padding: 16px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  }
+  .project-metric { text-align: center; }
+  .project-metric .val { font-size: 1.5rem; font-weight: 800; color: var(--accent); }
+  .project-metric .lbl { font-size: 0.78rem; color: var(--text3); }
+
+  .project-card p { color: var(--text2); font-size: 0.92rem; margin-top: 12px; line-height: 1.65; }
+
+  .project-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+  .tag {
+    background: var(--surface2); color: var(--text2); font-size: 0.78rem;
+    padding: 4px 12px; border-radius: 14px; font-weight: 500;
+  }
+  .tag.highlight { background: var(--accent-light); color: #0f766e; }
+
+  /* ===== Skills ===== */
+  .skills-cloud { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+
+  .skill-chip {
+    background: var(--surface); border: 1px solid var(--border); color: var(--text);
+    padding: 10px 22px; border-radius: 24px; font-size: 0.92rem; font-weight: 500;
+    transition: all var(--transition); cursor: default;
+  }
+  .skill-chip:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+  .skill-chip.primary { background: var(--accent-light); border-color: rgba(13, 148, 136, 0.25); color: #0f766e; }
+
+  /* ===== Experience Timeline ===== */
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before {
+    content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px;
+    width: 2px; background: var(--border);
+  }
+
+  .timeline-item { position: relative; margin-bottom: 40px; }
+  .timeline-item:last-child { margin-bottom: 0; }
+
+  .timeline-dot {
+    position: absolute; left: -29px; top: 6px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--accent); border: 3px solid var(--bg);
+    box-shadow: 0 0 0 2px var(--border);
+  }
+
+  .timeline-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; }
+  .timeline-role { font-weight: 700; font-size: 1.1rem; }
+  .timeline-org { color: var(--accent); font-weight: 600; }
+  .timeline-date { color: var(--text3); font-size: 0.85rem; }
+
+  .timeline-item ul { margin-top: 12px; padding-left: 18px; }
+  .timeline-item li { color: var(--text2); font-size: 0.92rem; margin-bottom: 8px; }
+  .timeline-item li::marker { color: var(--accent); }
+
+  /* ===== Education ===== */
+  .edu-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 32px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center;
+  }
+  .edu-school { font-size: 1.3rem; font-weight: 700; }
+  .edu-degree { color: var(--text2); margin-top: 4px; }
+  .edu-awards { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+  .award {
+    background: var(--accent-light); color: #0f766e; font-size: 0.82rem;
+    padding: 4px 12px; border-radius: 14px; font-weight: 600;
+  }
+  .edu-stat { text-align: center; }
+  .edu-stat .val { font-size: 2rem; font-weight: 800; color: var(--accent); }
+  .edu-stat .lbl { font-size: 0.82rem; color: var(--text3); }
+
+  /* ===== Contact ===== */
+  .contact-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  }
+  .contact-item {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 24px; text-align: center; transition: all var(--transition);
+  }
+  .contact-item:hover { border-color: var(--accent); }
+  .contact-icon { font-size: 1.5rem; margin-bottom: 10px; display: block; }
+  .contact-item .label { font-size: 0.78rem; color: var(--text3); margin-bottom: 4px; }
+  .contact-item .val { font-weight: 600; font-size: 0.95rem; }
+
+  /* ===== Footer ===== */
+  footer {
+    text-align: center; padding: 40px 0; border-top: 1px solid var(--border);
+    color: var(--text3); font-size: 0.85rem;
+  }
+
+  /* ===== Scroll Animations ===== */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ===== Mobile ===== */
+  @media (max-width: 768px) {
+    .hero .container { grid-template-columns: 1fr; gap: 40px; }
+    .hero { padding: 100px 0 60px; text-align: center; }
+    .hero-desc { max-width: 100%; }
+    .hero-actions { justify-content: center; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card.featured { grid-column: 1; }
+    .project-metrics { gap: 12px; }
+
+    .contact-grid { grid-template-columns: 1fr; }
+
+    .edu-card { grid-template-columns: 1fr; text-align: center; }
+
+    .nav-links { display: none; position: fixed; top: 56px; left: 0; right: 0;
+      background: #fff; flex-direction: column; padding: 20px 24px;
+      border-bottom: 1px solid var(--border); gap: 16px;
+      box-shadow: var(--shadow);
+    }
+    .nav-links.open { display: flex; }
+    .mobile-menu-btn { display: block; }
+
+    section { padding: 56px 0; }
+    .section-title { margin-bottom: 32px; }
+  }
+
+  @media (min-width: 769px) {
+    .project-card.featured { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+    .project-card.featured .project-body { grid-column: 1; }
+    .project-card.featured .project-metrics-wrap { grid-column: 2; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Nav ===== -->
+<nav id="nav">
+  <div class="container">
+    <a href="#" class="nav-logo">罗<span>楚婷</span></a>
+    <button class="mobile-menu-btn" id="menuBtn" aria-label="菜单">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#projects">项目</a></li>
+      <li><a href="#skills">技能</a></li>
+      <li><a href="#experience">经历</a></li>
+      <li><a href="#contact" class="nav-cta">联系我</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <div class="container">
+    <div>
+      <div class="hero-badge reveal"><span class="dot"></span> AI-native 运营人</div>
+      <h1 class="reveal">用<span class="highlight">AI</span>与<span class="highlight">数据</span><br>驱动增长的实践者</h1>
+      <p class="hero-desc reveal">
+        从零开始用AI独立开发产品，14万浏览、3000+用户的真实验证。
+        我相信运营的本质是：<strong>看数据、找问题、持续迭代。</strong>
+      </p>
+      <div class="hero-actions reveal">
+        <a href="#projects" class="btn btn-primary">查看项目 →</a>
+        <a href="#contact" class="btn btn-outline">联系我</a>
+      </div>
+    </div>
+    <div class="hero-stats reveal">
+      <div class="stat-card">
+        <div class="num">14万+</div>
+        <div class="label">AI产品页面浏览</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">3000+</div>
+        <div class="label">真实用户使用</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">100%</div>
+        <div class="label">教学服务满意度</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">25%</div>
+        <div class="label">续课率超机构均值</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Projects ===== -->
+<section id="projects">
+  <div class="container">
+    <p class="section-label reveal">核心项目</p>
+    <h2 class="section-title reveal">AI驱动 · 数据验证</h2>
+
+    <div class="projects-grid">
+      <!-- Featured: AI Website -->
+      <div class="project-card featured reveal">
+        <div class="project-body">
+          <span class="project-icon">🚀</span>
+          <h3>AI独立开发 · 数据型网站</h3>
+          <p>
+            使用AI编程工具，从零独立完成产品全流程：需求调研 → 数据库搭建 → 算法设计 → 线上部署 → 数据追踪。
+            整合<strong>124所高校16个维度</strong>的结构化数据，设计评分匹配算法，自动为用户输出冲/稳/保三级梯度推荐。
+            已接入百度统计，持续追踪用户行为并迭代功能。
+          </p>
+          <div class="project-tags">
+            <span class="tag highlight">AI编程</span>
+            <span class="tag highlight">数据算法</span>
+            <span class="tag">用户增长</span>
+            <span class="tag">数据追踪</span>
+            <span class="tag">产品迭代</span>
+          </div>
+        </div>
+        <div class="project-metrics-wrap">
+          <div class="project-metrics">
+            <div class="project-metric"><div class="val">14万+</div><div class="lbl">页面浏览</div></div>
+            <div class="project-metric"><div class="val">3000+</div><div class="lbl">真实用户</div></div>
+            <div class="project-metric"><div class="val">124所</div><div class="lbl">高校数据</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2: 小红书 -->
+      <div class="project-card reveal">
+        <span class="project-icon">📱</span>
+        <h3>小红书内容运营</h3>
+        <div class="project-metrics">
+          <div class="project-metric"><div class="val">1500+</div><div class="lbl">真实粉丝</div></div>
+        </div>
+        <p>
+          独立运营个人账号，全流程把控选题、标题、封面、发布节奏。
+          理解内容分发逻辑：标题决定打开率，内容决定转化率——与电商Listing优化逻辑高度一致。
+        </p>
+        <div class="project-tags">
+          <span class="tag">内容策划</span>
+          <span class="tag">用户增长</span>
+          <span class="tag">数据复盘</span>
+        </div>
+      </div>
+
+      <!-- Project 3: 暑期班 -->
+      <div class="project-card reveal">
+        <span class="project-icon">📊</span>
+        <h3>问帮自习室暑期班 · 运营方案</h3>
+        <p>
+          主动发现机构暑期业务空缺，独立产出PRD + 运营方案 + 财务测算 + PPT，
+          基于历史招生数据做营收预估模型（保守/正常两档），设计定价策略与课程排期。
+        </p>
+        <div class="project-tags">
+          <span class="tag">运营策划</span>
+          <span class="tag">财务测算</span>
+          <span class="tag">项目管理</span>
+        </div>
+      </div>
+
+      <!-- Project 4: 闪卡小程序 -->
+      <div class="project-card reveal">
+        <span class="project-icon">🧠</span>
+        <h3>古诗记忆闪卡 · 产品设计</h3>
+        <p>
+          从考研学习痛点出发，设计基于<strong>艾宾浩斯遗忘曲线算法</strong>的复习排期工具，
+          含三种记忆模式。完成完整PRD（33KB），含数据结构、页面路由、技术方案。
+        </p>
+        <div class="project-tags">
+          <span class="tag">产品设计</span>
+          <span class="tag">算法逻辑</span>
+          <span class="tag">PRD文档</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Skills ===== -->
+<section id="skills">
+  <div class="container">
+    <p class="section-label reveal">技能工具</p>
+    <h2 class="section-title reveal">能立刻上手的</h2>
+    <div class="skills-cloud reveal">
+      <span class="skill-chip primary">AI编程 (Claude)</span>
+      <span class="skill-chip primary">AI视频生成 (可灵)</span>
+      <span class="skill-chip primary">数据驱动运营</span>
+      <span class="skill-chip">英语六级</span>
+      <span class="skill-chip">英文Listing撰写</span>
+      <span class="skill-chip">小红书运营</span>
+      <span class="skill-chip">内容策划</span>
+      <span class="skill-chip">文案写作</span>
+      <span class="skill-chip">用户行为分析</span>
+      <span class="skill-chip">Word / Excel / PPT</span>
+      <span class="skill-chip">微信公众号</span>
+      <span class="skill-chip">GitHub Pages</span>
+      <span class="skill-chip">基础前端开发</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Experience ===== -->
+<section id="experience">
+  <div class="container">
+    <p class="section-label reveal">工作经历</p>
+    <h2 class="section-title reveal">一年教培 · 数据驱动结果</h2>
+
+    <div class="timeline reveal">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-header">
+          <div><span class="timeline-role">学科教师</span> · <span class="timeline-org">禧阅教育培训有限公司</span></div>
+          <span class="timeline-date">2025.05 – 2026.06</span>
+        </div>
+        <ul>
+          <li>负责10人小班及一对一教学，独立备课、教研、授课全流程，覆盖<strong>初中数学、地理、化学及高中地理</strong>多学科</li>
+          <li>拆解近5年中高考考点与考频，建立个性化题库体系，搭建"学情诊断→薄弱点突破→正向反馈"的教学方法论</li>
+          <li>核心成果：初中数学班人均提分20-30分；中考化学冲刺班均分提升20分；续课率<strong>高于机构均值25%</strong>；服务满意度<strong>100%</strong>，零投诉零差评</li>
+          <li>入职后从语文地理方向被调至数学化学方向，<strong>全程无人带教</strong>，独立完成跨学科教研——证明快速学习与知识迁移能力</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Education ===== -->
+<section>
+  <div class="container">
+    <p class="section-label reveal">教育背景</p>
+    <h2 class="section-title reveal">广东财经大学</h2>
+
+    <div class="edu-card reveal">
+      <div>
+        <div class="edu-school">广东财经大学</div>
+        <div class="edu-degree">汉语言文学 · 本科 · 2021.09 – 2025.06</div>
+        <div class="edu-awards">
+          <span class="award">🏅 院长奖学金（前1%）</span>
+          <span class="award">📚 学业优秀奖</span>
+          <span class="award">💪 自强不息奖</span>
+          <span class="award">🤝 社会公益奖</span>
+        </div>
+      </div>
+      <div class="edu-stat">
+        <div class="val">3.84</div>
+        <div class="lbl">GPA / 5.0</div>
+        <div style="margin-top:12px; color: var(--text2); font-size: 0.88rem;">专业前10%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Contact ===== -->
+<section id="contact">
+  <div class="container">
+    <p class="section-label reveal">联系方式</p>
+    <h2 class="section-title reveal">期待沟通</h2>
+
+    <div class="contact-grid reveal">
+      <div class="contact-item">
+        <span class="contact-icon">📞</span>
+        <div class="label">电话</div>
+        <div class="val">17675637717</div>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">📧</span>
+        <div class="label">邮箱</div>
+        <div class="val">1822977645@qq.com</div>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">📍</span>
+        <div class="label">所在地</div>
+        <div class="val">广东 · 广州</div>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:40px;" class="reveal">
+      <p style="color: var(--text2); margin-bottom: 16px;">用AI把想法变成产品。用数据把产品变成增长。这就是我。</p>
+      <a href="#" class="btn btn-primary">↑ 回到顶部</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    © 2026 罗楚婷 · 用 AI &amp; Claude Code 构建 · 托管于 GitHub Pages
+  </div>
+</footer>
+
+<!-- ===== JS: Scroll reveal + Mobile menu ===== -->
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  menuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    menuBtn.textContent = navLinks.classList.contains('open') ? '✕' : '☰';
+  });
+
+  // Close menu on link click
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuBtn.textContent = '☰';
+    });
+  });
+
+  // Nav hide/show on scroll
+  let lastScroll = 0;
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    if (currentScroll <= 0) { nav.style.transform = 'translateY(0)'; return; }
+    nav.style.transform = currentScroll > lastScroll ? 'translateY(-100%)' : 'translateY(0)';
+    lastScroll = currentScroll;
+  });
+</script>
+
+</body>
+</html>
