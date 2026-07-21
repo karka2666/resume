@@ -3,652 +3,446 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>罗楚婷 | AI-native 运营人</title>
-<meta name="description" content="罗楚婷个人主页 - AI-native运营人，数据驱动，快速学习。14万+浏览AI产品创造者。">
+<title>罗楚婷 | Personal Site</title>
+<meta name="description" content="罗楚婷 — AI-native 运营实践者。14万+浏览产品创造者，数据驱动增长。">
 <style>
   /* ===== Reset & Base ===== */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --bg: #f9f8f8;
+    --bg: #faf9f8;
     --surface: #ffffff;
-    --surface2: #f4f2f3;
-    --border: #e8e5e6;
-    --text: #1a1a1a;
-    --text2: #707070;
-    --text3: #a0a0a0;
-    --accent: #8e7d7d;
-    --accent2: #a09090;
-    --accent-light: #f3efef;
-    --blue: #5a6a7a;
-    --green: #7a9680;
-    --red: #c07070;
-    --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
-    --shadow: 0 2px 12px rgba(0,0,0,0.04);
-    --shadow-lg: 0 8px 28px rgba(0,0,0,0.06);
-    --radius: 8px;
-    --radius-sm: 6px;
-    --max-w: 920px;
-    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --border: #e8e5e4;
+    --text: #1a1817;
+    --text2: #6b6562;
+    --text3: #a09894;
+    --accent: #6b7f94;
+    --accent-dark: #4a5d6f;
+    --accent-light: #ecf0f3;
+    --shadow: 0 2px 16px rgba(0,0,0,0.05);
+    --shadow-lg: 0 12px 40px rgba(0,0,0,0.08);
+    --radius: 12px;
+    --max-w: 1000px;
+    --transition: 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
   }
 
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-snap-type: y proximity; }
 
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", -apple-system, sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.75;
+    -webkit-font-smoothing: antialiased; overflow-x: hidden;
   }
 
   /* ===== Typography ===== */
-  h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; }
-  h2 { font-size: clamp(1.6rem, 3.5vw, 2rem); font-weight: 700; letter-spacing: -0.01em; }
-  h3 { font-size: 1.25rem; font-weight: 600; }
-  a { color: var(--blue); text-decoration: none; transition: color var(--transition); }
-  a:hover { color: var(--accent2); }
+  h1 { font-size: clamp(2.8rem, 6vw, 4rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; }
+  h2 { font-size: clamp(1.5rem, 3vw, 1.8rem); font-weight: 600; letter-spacing: -0.01em; }
+  h3 { font-size: 1.15rem; font-weight: 600; }
+  .serif { font-family: "Noto Serif SC", "STSong", "Songti SC", "SimSun", serif; }
 
   /* ===== Layout ===== */
-  .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+  .container { max-width: var(--max-w); margin: 0 auto; padding: 0 28px; }
 
-  section { padding: 80px 0; position: relative; }
+  section { min-height: 100vh; display: flex; align-items: center; position: relative; scroll-snap-align: start; }
+  section.full { padding: 100px 0; }
 
-  .section-label {
-    font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em;
-    color: var(--accent); margin-bottom: 12px;
-  }
+  .section-tag { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 12px; }
 
-  .section-title { margin-bottom: 48px; }
-
-  /* ===== Nav ===== */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(255, 255, 255, 0.88); backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border);
-    transition: transform var(--transition);
-  }
-
-  nav .container {
-    display: flex; align-items: center; justify-content: space-between;
-    height: 56px;
-  }
-
-  .nav-logo { font-weight: 700; font-size: 1.1rem; color: var(--text); }
-  .nav-logo span { color: var(--accent); }
-
-  .nav-links { display: flex; gap: 28px; list-style: none; }
-  .nav-links a { color: var(--text2); font-size: 0.9rem; font-weight: 500; transition: color var(--transition); }
-  .nav-links a:hover { color: var(--accent); }
-
-  .nav-cta {
-    background: var(--accent); color: #fff !important;
-    padding: 6px 18px; border-radius: 20px; font-weight: 600 !important;
-    transition: all var(--transition);
-  }
-  .nav-cta:hover { background: #7a6a6a; transform: translateY(-1px); }
-
-  .mobile-menu-btn { display: none; background: none; border: none; color: var(--text); font-size: 1.5rem; cursor: pointer; }
+  /* ===== Side Dots Nav ===== */
+  .side-nav { position: fixed; right: 28px; top: 50%; transform: translateY(-50%); z-index: 100; display: flex; flex-direction: column; gap: 14px; }
+  .side-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--text3); transition: all var(--transition); cursor: pointer; border: none; }
+  .side-dot:hover, .side-dot.active { background: var(--accent); transform: scale(1.4); }
+  .side-dot.active { box-shadow: 0 0 0 4px var(--accent-light); }
 
   /* ===== Hero ===== */
-  .hero {
-    padding: 140px 0 100px;
-    background: linear-gradient(180deg, #f3f1f1 0%, #f9f8f8 35%, #f9f8f8 100%);
-  }
+  .hero-content { max-width: 700px; }
+  .hero-content h1 { margin-bottom: 20px; }
+  .hero-content h1 .em { color: var(--accent); }
+  .hero-desc { font-size: 1.15rem; color: var(--text2); max-width: 500px; margin-bottom: 36px; line-height: 1.8; }
 
-  .hero .container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .hero-stats { display: flex; gap: 40px; margin-bottom: 40px; }
+  .hero-stat .n { font-size: 2.2rem; font-weight: 700; color: var(--accent); letter-spacing: -0.02em; }
+  .hero-stat .l { font-size: 0.85rem; color: var(--text3); }
 
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--accent-light); color: var(--accent);
-    padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 600;
-    margin-bottom: 24px;
-  }
-  .hero-badge .dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; animation: pulse-dot 2s infinite; }
+  .scroll-hint { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--text3); font-size: 0.78rem; letter-spacing: 0.1em; animation: float 2.5s ease-in-out infinite; }
+  @keyframes float { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
 
-  @keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+  /* ===== About ===== */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+  .about-text p { color: var(--text2); font-size: 1rem; margin-bottom: 16px; line-height: 1.9; }
+  .about-text .highlight { color: var(--accent); font-weight: 600; }
+  .about-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+  .about-tag { background: var(--accent-light); color: var(--accent-dark); padding: 6px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 500; }
 
-  .hero h1 { margin-bottom: 16px; }
-  .hero h1 .highlight { color: var(--accent); }
-
-  .hero-desc { color: var(--text2); font-size: 1.1rem; max-width: 420px; margin-bottom: 32px; }
-
-  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
-
-  .btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 12px 28px; border-radius: 28px; font-weight: 600; font-size: 0.95rem;
-    cursor: pointer; border: none; transition: all var(--transition); white-space: nowrap;
-  }
-  .btn-primary { background: var(--accent); color: #fff; }
-  .btn-primary:hover { background: #7a6a6a; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(142, 125, 125, 0.2); }
-  .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
-  .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
-
-  /* Hero stats cards */
-  .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .stat-card {
+  /* ===== Cards ===== */
+  .card {
     background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 28px 24px; text-align: center; transition: all var(--transition);
+    padding: 36px 32px; transition: all var(--transition); position: relative;
   }
-  .stat-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: var(--shadow-lg); }
-  .stat-card .num {
-    font-size: 2.2rem; font-weight: 800; color: var(--accent);
+  .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: #d5d0ce; }
+
+  .card-metrics { display: flex; gap: 28px; margin: 18px 0; padding: 14px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .card-metric .v { font-size: 1.4rem; font-weight: 700; color: var(--accent); }
+  .card-metric .l { font-size: 0.78rem; color: var(--text3); }
+
+  .card.featured { grid-column: 1 / -1; }
+  .card.featured::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), #9bb0c0); border-radius: 3px 3px 0 0; }
+
+  .tag { background: var(--accent-light); color: var(--accent-dark); font-size: 0.78rem; padding: 4px 10px; border-radius: 12px; font-weight: 500; }
+  .tag.dark { background: var(--accent); color: #fff; }
+
+  /* ===== Gallery Horizontal Scroll ===== */
+  .gallery-wrapper { overflow-x: auto; overflow-y: hidden; white-space: nowrap; cursor: grab; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding: 20px 0 30px; }
+  .gallery-wrapper::-webkit-scrollbar { height: 4px; }
+  .gallery-wrapper::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+  .gallery-wrapper:active { cursor: grabbing; }
+
+  .gallery-item {
+    display: inline-block; width: 280px; margin-right: 16px; scroll-snap-align: start;
+    border-radius: var(--radius); overflow: hidden; transition: all var(--transition);
+    box-shadow: var(--shadow); flex-shrink: 0;
   }
-  .stat-card .label { font-size: 0.88rem; color: var(--text2); margin-top: 4px; font-weight: 500; }
+  .gallery-item:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .gallery-item img { width: 100%; height: 360px; object-fit: cover; display: block; }
 
-  /* ===== Projects ===== */
-  .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-
-  .project-card {
-    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 32px; transition: all var(--transition); position: relative; overflow: hidden;
-  }
-  .project-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-
-  .project-card.featured { grid-column: 1 / -1; }
-
-  .project-card.featured::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-    background: linear-gradient(90deg, var(--accent), #b8a8a8);
-  }
-
-  .project-icon { font-size: 1.6rem; margin-bottom: 16px; display: block; }
-
-  .project-card h3 { margin-bottom: 8px; }
-
-  .project-metrics {
-    display: flex; gap: 24px; margin: 16px 0;
-    padding: 16px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-  }
-  .project-metric { text-align: center; }
-  .project-metric .val { font-size: 1.5rem; font-weight: 800; color: var(--accent); }
-  .project-metric .lbl { font-size: 0.78rem; color: var(--text3); }
-
-  .project-card p { color: var(--text2); font-size: 0.92rem; margin-top: 12px; line-height: 1.65; }
-
-  .project-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
-  .tag {
-    background: var(--surface2); color: var(--text2); font-size: 0.78rem;
-    padding: 4px 12px; border-radius: 14px; font-weight: 500;
-  }
-  .tag.highlight { background: var(--accent-light); color: #7a6a6a; }
+  /* ===== Lightbox ===== */
+  .lightbox { display: none; position: fixed; inset: 0; z-index: 300; background: rgba(10,10,10,0.92); align-items: center; justify-content: center; padding: 40px; }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 88vw; max-height: 85vh; border-radius: 8px; object-fit: contain; }
+  .lb-close { position: absolute; top: 24px; right: 28px; background: none; border: none; color: #fff; font-size: 2.2rem; cursor: pointer; }
+  .lb-prev, .lb-next { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.1); border: none; color: #fff; font-size: 2.4rem; cursor: pointer; padding: 18px 14px; border-radius: 8px; transition: background 0.2s; }
+  .lb-prev:hover, .lb-next:hover { background: rgba(255,255,255,0.22); }
+  .lb-prev { left: 20px; } .lb-next { right: 20px; }
 
   /* ===== Skills ===== */
-  .skills-cloud { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
-
-  .skill-chip {
+  .skills-flex { display: flex; flex-wrap: wrap; gap: 12px; }
+  .skill-pill {
     background: var(--surface); border: 1px solid var(--border); color: var(--text);
-    padding: 10px 22px; border-radius: 24px; font-size: 0.92rem; font-weight: 500;
-    transition: all var(--transition); cursor: default;
+    padding: 10px 20px; border-radius: 24px; font-size: 0.9rem; transition: all var(--transition);
   }
-  .skill-chip:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+  .skill-pill:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+  .skill-pill.pri { background: var(--accent-light); border-color: transparent; color: var(--accent-dark); font-weight: 600; }
 
-  .skill-chip.primary { background: var(--accent-light); border-color: rgba(142, 125, 125, 0.2); color: #6e5e5e; }
-
-  /* ===== Experience Timeline ===== */
-  .timeline { position: relative; padding-left: 32px; }
-  .timeline::before {
-    content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px;
-    width: 2px; background: var(--border);
-  }
-
-  .timeline-item { position: relative; margin-bottom: 40px; }
-  .timeline-item:last-child { margin-bottom: 0; }
-
-  .timeline-dot {
-    position: absolute; left: -29px; top: 6px;
-    width: 14px; height: 14px; border-radius: 50%;
-    background: var(--accent); border: 3px solid var(--bg);
-    box-shadow: 0 0 0 2px var(--border);
-  }
-
-  .timeline-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; }
-  .timeline-role { font-weight: 700; font-size: 1.1rem; }
-  .timeline-org { color: var(--accent); font-weight: 600; }
-  .timeline-date { color: var(--text3); font-size: 0.85rem; }
-
-  .timeline-item ul { margin-top: 12px; padding-left: 18px; }
-  .timeline-item li { color: var(--text2); font-size: 0.92rem; margin-bottom: 8px; }
-  .timeline-item li::marker { color: var(--accent); }
-
-  /* ===== Education ===== */
-  .edu-card {
-    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 32px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center;
-  }
-  .edu-school { font-size: 1.3rem; font-weight: 700; }
-  .edu-degree { color: var(--text2); margin-top: 4px; }
-  .edu-awards { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
-  .award {
-    background: var(--accent-light); color: #6e5e5e; font-size: 0.82rem;
-    padding: 4px 12px; border-radius: 14px; font-weight: 600;
-  }
-  .edu-stat { text-align: center; }
-  .edu-stat .val { font-size: 2rem; font-weight: 800; color: var(--accent); }
-  .edu-stat .lbl { font-size: 0.82rem; color: var(--text3); }
+  /* ===== Timeline ===== */
+  .timeline { position: relative; padding-left: 28px; }
+  .timeline::before { content: ''; position: absolute; left: 6px; top: 6px; bottom: 6px; width: 2px; background: var(--border); }
+  .tl-item { position: relative; margin-bottom: 32px; }
+  .tl-dot { position: absolute; left: -27px; top: 5px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 3px solid var(--bg); box-shadow: 0 0 0 2px var(--border); }
+  .tl-head { display: flex; gap: 16px; align-items: baseline; flex-wrap: wrap; margin-bottom: 8px; }
+  .tl-role { font-weight: 700; }
+  .tl-org { color: var(--accent); font-weight: 600; }
+  .tl-date { color: var(--text3); font-size: 0.85rem; }
+  .tl-item ul { padding-left: 18px; color: var(--text2); font-size: 0.9rem; }
+  .tl-item li { margin-bottom: 6px; }
+  .tl-item li::marker { color: var(--accent); }
 
   /* ===== Contact ===== */
-  .contact-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
-  }
-  .contact-item {
-    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 24px; text-align: center; transition: all var(--transition);
-  }
-  .contact-item:hover { border-color: var(--accent); }
-  .contact-icon { font-size: 1.5rem; margin-bottom: 10px; display: block; }
-  .contact-item .label { font-size: 0.78rem; color: var(--text3); margin-bottom: 4px; }
-  .contact-item .val { font-weight: 600; font-size: 0.95rem; }
+  .contact-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .contact-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 24px; text-align: center; transition: all var(--transition); }
+  .contact-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .contact-card .icon { font-size: 1.4rem; margin-bottom: 8px; }
+  .contact-card .label { font-size: 0.75rem; color: var(--text3); margin-bottom: 2px; }
+  .contact-card .value { font-weight: 600; }
 
   /* ===== Footer ===== */
-  footer {
-    text-align: center; padding: 40px 0; border-top: 1px solid var(--border);
-    color: var(--text3); font-size: 0.85rem;
-  }
+  footer { text-align: center; padding: 40px 0; border-top: 1px solid var(--border); color: var(--text3); font-size: 0.82rem; }
 
-  /* ===== Scroll Animations ===== */
-  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  /* ===== Reveal Animations ===== */
+  .reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.8s ease, transform 0.8s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ===== Vibe Coding Badge ===== */
+  .vibe-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #1a1817; color: #faf9f8; font-size: 0.78rem;
+    padding: 8px 16px; border-radius: 24px; font-weight: 500;
+    position: fixed; bottom: 24px; left: 24px; z-index: 100;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15); animation: fadeInUp 1s ease 0.5s both;
+  }
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .vibe-badge .spark { font-size: 0.9rem; }
 
   /* ===== Mobile ===== */
   @media (max-width: 768px) {
-    .hero .container { grid-template-columns: 1fr; gap: 40px; }
-    .hero { padding: 100px 0 60px; text-align: center; }
-    .hero-desc { max-width: 100%; }
-    .hero-actions { justify-content: center; }
-    .hero-stats { grid-template-columns: 1fr 1fr; }
-
-    .projects-grid { grid-template-columns: 1fr; }
-    .project-card.featured { grid-column: 1; }
-    .project-metrics { gap: 12px; }
-
-    .contact-grid { grid-template-columns: 1fr; }
-
-    .edu-card { grid-template-columns: 1fr; text-align: center; }
-
-    .nav-links { display: none; position: fixed; top: 56px; left: 0; right: 0;
-      background: #fff; flex-direction: column; padding: 20px 24px;
-      border-bottom: 1px solid var(--border); gap: 16px;
-      box-shadow: var(--shadow);
-    }
-    .nav-links.open { display: flex; }
-    .mobile-menu-btn { display: block; }
-
-    section { padding: 56px 0; }
-    .section-title { margin-bottom: 32px; }
-  }
-
-  /* ===== Design Gallery ===== */
-  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-
-  .gallery-item {
-    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-    overflow: hidden; cursor: pointer; transition: all var(--transition);
-    aspect-ratio: 3/4;
-  }
-  .gallery-item:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-
-  .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-  /* Lightbox */
-  .lightbox {
-    display: none; position: fixed; inset: 0; z-index: 200;
-    background: rgba(0,0,0,0.9); align-items: center; justify-content: center;
-    padding: 40px;
-  }
-  .lightbox.open { display: flex; }
-
-  .lightbox img { max-width: 90vw; max-height: 85vh; border-radius: 8px; object-fit: contain; }
-
-  .lightbox-close {
-    position: absolute; top: 20px; right: 24px; background: none; border: none;
-    color: #fff; font-size: 2rem; cursor: pointer; line-height: 1;
-  }
-
-  .lightbox-prev, .lightbox-next {
-    position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.12);
-    border: none; color: #fff; font-size: 2rem; cursor: pointer; padding: 16px 12px;
-    border-radius: 8px; transition: background var(--transition);
-  }
-  .lightbox-prev:hover, .lightbox-next:hover { background: rgba(255,255,255,0.25); }
-  .lightbox-prev { left: 16px; }
-  .lightbox-next { right: 16px; }
-
-  @media (max-width: 768px) {
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-    .lightbox { padding: 20px; }
-    .lightbox-prev, .lightbox-next { font-size: 1.5rem; padding: 10px 8px; }
+    section { min-height: auto; padding: 64px 0; }
+    section.full { padding: 64px 0; }
+    .side-nav { right: 12px; gap: 10px; }
+    .side-dot { width: 8px; height: 8px; }
+    .hero-stats { gap: 20px; }
+    .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    .contact-row { grid-template-columns: 1fr; }
+    .gallery-item { width: 220px; }
+    .gallery-item img { height: 280px; }
+    .card.featured { grid-column: 1; }
+    .scroll-hint { display: none; }
   }
 
   @media (min-width: 769px) {
-    .project-card.featured { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
-    .project-card.featured .project-body { grid-column: 1; }
-    .project-card.featured .project-metrics-wrap { grid-column: 2; }
+    .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   }
 </style>
 </head>
 <body>
 
-<!-- ===== Nav ===== -->
-<nav id="nav">
-  <div class="container">
-    <a href="#" class="nav-logo">罗<span>楚婷</span></a>
-    <button class="mobile-menu-btn" id="menuBtn" aria-label="菜单">☰</button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#projects">项目</a></li>
-      <li><a href="#design">作品</a></li>
-      <li><a href="#skills">技能</a></li>
-      <li><a href="#experience">经历</a></li>
-      <li><a href="#contact" class="nav-cta">联系我</a></li>
-    </ul>
-  </div>
+<!-- ===== Side Nav ===== -->
+<nav class="side-nav" id="sideNav">
+  <button class="side-dot active" data-target="hero" title="首页"></button>
+  <button class="side-dot" data-target="about" title="关于"></button>
+  <button class="side-dot" data-target="projects" title="项目"></button>
+  <button class="side-dot" data-target="gallery" title="作品"></button>
+  <button class="side-dot" data-target="skills" title="技能"></button>
+  <button class="side-dot" data-target="contact" title="联系"></button>
 </nav>
 
 <!-- ===== Hero ===== -->
-<section class="hero">
+<section id="hero" style="min-height:100vh;">
   <div class="container">
-    <div>
-      <div class="hero-badge reveal"><span class="dot"></span> AI-native 运营人</div>
-      <h1 class="reveal">用<span class="highlight">AI</span>与<span class="highlight">数据</span><br>驱动增长的实践者</h1>
-      <p class="hero-desc reveal">
-        从零开始用AI独立开发产品，14万浏览、3000+用户的真实验证。
-        我相信运营的本质是：<strong>看数据、找问题、持续迭代。</strong>
+    <div class="hero-content">
+      <p class="section-tag reveal" style="transition-delay: 0.05s;">Personal Site · 2026</p>
+      <h1 class="reveal" style="transition-delay: 0.1s;">你好，我是<span class="em">罗楚婷</span></h1>
+      <p class="hero-desc reveal" style="transition-delay: 0.2s;">
+        汉语言文学出身，<strong>AI-native 运营实践者</strong>。<br>
+        独立用 AI 从零开发产品，14 万浏览 · 3000+ 用户。<br>
+        相信运营的本质是：看数据、找问题、持续迭代。
       </p>
-      <div class="hero-actions reveal">
-        <a href="#projects" class="btn btn-primary">查看项目 →</a>
-        <a href="#contact" class="btn btn-outline">联系我</a>
+      <div class="hero-stats reveal" style="transition-delay: 0.3s;">
+        <div class="hero-stat"><div class="n">14万+</div><div class="l">产品浏览</div></div>
+        <div class="hero-stat"><div class="n">3000+</div><div class="l">真实用户</div></div>
+        <div class="hero-stat"><div class="n">100%</div><div class="l">服务满意度</div></div>
       </div>
     </div>
-    <div class="hero-stats reveal">
-      <div class="stat-card">
-        <div class="num">14万+</div>
-        <div class="label">AI产品页面浏览</div>
+  </div>
+  <div class="scroll-hint">↓ 了解更多</div>
+</section>
+
+<!-- ===== About ===== -->
+<section id="about" class="full">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <p class="section-tag reveal">关于我</p>
+        <h2 class="reveal">22岁，正在定义<br>自己的职业路径</h2>
       </div>
-      <div class="stat-card">
-        <div class="num">3000+</div>
-        <div class="label">真实用户使用</div>
-      </div>
-      <div class="stat-card">
-        <div class="num">100%</div>
-        <div class="label">教学服务满意度</div>
-      </div>
-      <div class="stat-card">
-        <div class="num">25%</div>
-        <div class="label">续课率超机构均值</div>
+      <div class="about-text reveal">
+        <p>
+          <span class="highlight">广东财经大学</span>汉语言文学本科，GPA 3.84 / 5.0，专业前 10%。
+          获<span class="highlight">院长奖学金</span>（全学院前 1%）、学业优秀奖、自强不息奖、社会公益奖。
+        </p>
+        <p>
+          一年教培经验，从语文地理被调至数学化学，<span class="highlight">零带教独立教研</span>，
+          实现学生提分 20-30 分、续课率超机构均值 25%、服务满意度 100%。
+        </p>
+        <p>
+          2026 年用 AI 独立开发数据型网站，上线 14 万浏览 · 3000+ 用户。正在寻找跨境电商运营机会，
+          用数据思维和 AI 能力驱动增长。
+        </p>
+        <div class="about-tags">
+          <span class="about-tag">🎓 广东财经大学</span>
+          <span class="about-tag">📚 GPA 3.84</span>
+          <span class="about-tag">🏅 院长奖学金</span>
+          <span class="about-tag">🇬🇧 英语六级</span>
+          <span class="about-tag">📝 高中语文教资</span>
+          <span class="about-tag">📍 广州</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ===== Projects ===== -->
-<section id="projects">
+<section id="projects" class="full">
   <div class="container">
-    <p class="section-label reveal">核心项目</p>
-    <h2 class="section-title reveal">AI驱动 · 数据验证</h2>
+    <p class="section-tag reveal">项目经历</p>
+    <h2 class="reveal" style="margin-bottom: 40px;">AI 驱动 · 数据验证</h2>
 
     <div class="projects-grid">
-      <!-- Featured: AI Website -->
-      <div class="project-card featured reveal">
-        <div class="project-body">
-          <span class="project-icon">🚀</span>
-          <h3>AI独立开发 · 数据型网站</h3>
-          <p>
-            使用AI编程工具，从零独立完成产品全流程：需求调研 → 数据库搭建 → 算法设计 → 线上部署 → 数据追踪。
-            整合<strong>124所高校16个维度</strong>的结构化数据，设计评分匹配算法，自动为用户输出冲/稳/保三级梯度推荐。
-            已接入百度统计，持续追踪用户行为并迭代功能。
-          </p>
-          <div class="project-tags">
-            <span class="tag highlight">AI编程</span>
-            <span class="tag highlight">数据算法</span>
-            <span class="tag">用户增长</span>
-            <span class="tag">数据追踪</span>
-            <span class="tag">产品迭代</span>
-          </div>
+      <!-- Featured -->
+      <div class="card featured reveal">
+        <h3>🚀 AI 独立开发 · 数据型网站</h3>
+        <div class="card-metrics">
+          <div class="card-metric"><div class="v">14万+</div><div class="l">页面浏览</div></div>
+          <div class="card-metric"><div class="v">3000+</div><div class="l">真实用户</div></div>
+          <div class="card-metric"><div class="v">124所</div><div class="l">高校数据</div></div>
+          <div class="card-metric"><div class="v">16维</div><div class="l">数据维度</div></div>
         </div>
-        <div class="project-metrics-wrap">
-          <div class="project-metrics">
-            <div class="project-metric"><div class="val">14万+</div><div class="lbl">页面浏览</div></div>
-            <div class="project-metric"><div class="val">3000+</div><div class="lbl">真实用户</div></div>
-            <div class="project-metric"><div class="val">124所</div><div class="lbl">高校数据</div></div>
-          </div>
+        <p style="color:var(--text2);font-size:0.92rem;line-height:1.8;">
+          使用 AI 编程工具从零独立完成全流程：需求调研 → 数据库搭建 → 评分算法设计 → GitHub Pages 部署 → 百度统计追踪。
+          整合 124 所高校 16 个维度的结构化数据，设计冲/稳/保三级梯度推荐算法。零推广成本，
+          纯靠产品力获得 14 万浏览与 3000+ 用户。
+        </p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;">
+          <span class="tag dark">AI 编程</span><span class="tag dark">数据算法</span>
+          <span class="tag">用户增长</span><span class="tag">数据追踪</span><span class="tag">产品迭代</span>
         </div>
       </div>
 
-      <!-- Project 2: 小红书 -->
-      <div class="project-card reveal">
-        <span class="project-icon">📱</span>
-        <h3>小红书内容运营</h3>
-        <div class="project-metrics">
-          <div class="project-metric"><div class="val">1500+</div><div class="lbl">真实粉丝</div></div>
-        </div>
-        <p>
-          独立运营个人账号，全流程把控选题、标题、封面、发布节奏。
-          理解内容分发逻辑：标题决定打开率，内容决定转化率——与电商Listing优化逻辑高度一致。
+      <div class="card reveal">
+        <h3>📱 小红书内容运营</h3>
+        <div class="card-metrics"><div class="card-metric"><div class="v">1500+</div><div class="l">真实粉丝</div></div></div>
+        <p style="color:var(--text2);font-size:0.92rem;">
+          独立运营个人账号，全流程把控选题、标题、封面与发布节奏。理解内容分发逻辑——标题决定打开率，内容决定转化率，与电商 Listing 优化逻辑高度一致。
         </p>
-        <div class="project-tags">
-          <span class="tag">内容策划</span>
-          <span class="tag">用户增长</span>
-          <span class="tag">数据复盘</span>
-        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;"><span class="tag">内容策划</span><span class="tag">用户增长</span></div>
       </div>
 
-      <!-- Project 3: 暑期班 -->
-      <div class="project-card reveal">
-        <span class="project-icon">📊</span>
-        <h3>问帮自习室暑期班 · 运营方案</h3>
-        <p>
-          主动发现机构暑期业务空缺，独立产出PRD + 运营方案 + 财务测算 + PPT，
-          基于历史招生数据做营收预估模型（保守/正常两档），设计定价策略与课程排期。
+      <div class="card reveal">
+        <h3>📊 暑期班运营方案</h3>
+        <p style="color:var(--text2);font-size:0.92rem;">
+          主动发现机构业务空缺，独立产出 PRD + 运营方案 + 财务测算 + PPT 全套交付物。基于历史招生数据做营收预估模型，设计定价策略与课程排期。
         </p>
-        <div class="project-tags">
-          <span class="tag">运营策划</span>
-          <span class="tag">财务测算</span>
-          <span class="tag">项目管理</span>
-        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;"><span class="tag">运营策划</span><span class="tag">项目管理</span></div>
       </div>
 
-      <!-- Project 4: 闪卡小程序 -->
-      <div class="project-card reveal">
-        <span class="project-icon">🧠</span>
-        <h3>古诗记忆闪卡 · 产品设计</h3>
-        <p>
-          从考研学习痛点出发，设计基于<strong>艾宾浩斯遗忘曲线算法</strong>的复习排期工具，
-          含三种记忆模式。完成完整PRD（33KB），含数据结构、页面路由、技术方案。
+      <div class="card reveal">
+        <h3>🧠 古诗记忆闪卡 · 产品设计</h3>
+        <p style="color:var(--text2);font-size:0.92rem;">
+          从考研学习痛点出发，设计基于艾宾浩斯遗忘曲线算法的复习排期工具，含三种记忆模式。完成 33KB 完整 PRD，含数据结构、页面路由、技术方案。
         </p>
-        <div class="project-tags">
-          <span class="tag">产品设计</span>
-          <span class="tag">算法逻辑</span>
-          <span class="tag">PRD文档</span>
-        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;"><span class="tag">产品设计</span><span class="tag">PRD</span></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ===== Design Gallery ===== -->
-<section id="design">
-  <div class="container">
-    <p class="section-label reveal">设计作品</p>
-    <h2 class="section-title reveal">Procreate 视觉设计</h2>
-    <p style="color: var(--text2); margin-top: -32px; margin-bottom: 32px; font-size: 0.92rem;" class="reveal">
-      熟练掌握 Procreate 数字绘画与海报设计，具备构图、配色、排版能力——可直接迁移至 Listing 主图与 A+ 页面视觉设计
-    </p>
+<section id="gallery" class="full">
+  <div class="container" style="width:100%;">
+    <p class="section-tag reveal">设计作品</p>
+    <h2 class="reveal" style="margin-bottom: 8px;">Procreate 视觉设计</h2>
+    <p class="reveal" style="color:var(--text3);font-size:0.9rem;margin-bottom:28px;">点击图片放大浏览 · 左右拖动查看更多</p>
 
-    <div class="gallery-grid reveal">
-      <div class="gallery-item" data-index="0"><img src="images/design-01.jpg" alt="海报设计 01" loading="lazy"></div>
-      <div class="gallery-item" data-index="1"><img src="images/design-02.jpg" alt="海报设计 02" loading="lazy"></div>
-      <div class="gallery-item" data-index="2"><img src="images/design-03.jpg" alt="海报设计 03" loading="lazy"></div>
-      <div class="gallery-item" data-index="3"><img src="images/design-04.jpg" alt="海报设计 04" loading="lazy"></div>
-      <div class="gallery-item" data-index="4"><img src="images/design-05.jpg" alt="海报设计 05" loading="lazy"></div>
-      <div class="gallery-item" data-index="5"><img src="images/design-06.jpg" alt="海报设计 06" loading="lazy"></div>
-      <div class="gallery-item" data-index="6"><img src="images/design-07.jpg" alt="海报设计 07" loading="lazy"></div>
-      <div class="gallery-item" data-index="7"><img src="images/design-08.jpg" alt="海报设计 08" loading="lazy"></div>
-      <div class="gallery-item" data-index="8"><img src="images/design-09.jpg" alt="海报设计 09" loading="lazy"></div>
-      <div class="gallery-item" data-index="9"><img src="images/design-10.jpg" alt="海报设计 10" loading="lazy"></div>
-      <div class="gallery-item" data-index="10"><img src="images/design-11.jpg" alt="海报设计 11" loading="lazy"></div>
+    <div class="gallery-wrapper reveal" id="galleryScroll">
+      <div class="gallery-item" data-idx="0"><img src="images/design-01.jpg" alt="设计作品 01" loading="lazy"></div>
+      <div class="gallery-item" data-idx="1"><img src="images/design-02.jpg" alt="设计作品 02" loading="lazy"></div>
+      <div class="gallery-item" data-idx="2"><img src="images/design-03.jpg" alt="设计作品 03" loading="lazy"></div>
+      <div class="gallery-item" data-idx="3"><img src="images/design-04.jpg" alt="设计作品 04" loading="lazy"></div>
+      <div class="gallery-item" data-idx="4"><img src="images/design-05.jpg" alt="设计作品 05" loading="lazy"></div>
+      <div class="gallery-item" data-idx="5"><img src="images/design-06.jpg" alt="设计作品 06" loading="lazy"></div>
+      <div class="gallery-item" data-idx="6"><img src="images/design-07.jpg" alt="设计作品 07" loading="lazy"></div>
+      <div class="gallery-item" data-idx="7"><img src="images/design-08.jpg" alt="设计作品 08" loading="lazy"></div>
+      <div class="gallery-item" data-idx="8"><img src="images/design-09.jpg" alt="设计作品 09" loading="lazy"></div>
+      <div class="gallery-item" data-idx="9"><img src="images/design-10.jpg" alt="设计作品 10" loading="lazy"></div>
+      <div class="gallery-item" data-idx="10"><img src="images/design-11.jpg" alt="设计作品 11" loading="lazy"></div>
     </div>
   </div>
 
   <!-- Lightbox -->
-  <div class="lightbox" id="lightbox">
-    <button class="lightbox-close" id="lbClose">✕</button>
-    <button class="lightbox-prev" id="lbPrev">‹</button>
+  <div class="lightbox" id="lb">
+    <button class="lb-close" id="lbClose">✕</button>
+    <button class="lb-prev" id="lbPrev">‹</button>
     <img src="" alt="" id="lbImg">
-    <button class="lightbox-next" id="lbNext">›</button>
+    <button class="lb-next" id="lbNext">›</button>
   </div>
 </section>
 
-<!-- ===== Skills ===== -->
-<section id="skills">
+<!-- ===== Skills + Experience ===== -->
+<section id="skills" class="full">
   <div class="container">
-    <p class="section-label reveal">技能工具</p>
-    <h2 class="section-title reveal">能立刻上手的</h2>
-    <div class="skills-cloud reveal">
-      <span class="skill-chip primary">AI编程 (Claude)</span>
-      <span class="skill-chip primary">AI视频生成 (可灵)</span>
-      <span class="skill-chip primary">数据驱动运营</span>
-      <span class="skill-chip">英语六级</span>
-      <span class="skill-chip">英文Listing撰写</span>
-      <span class="skill-chip">小红书运营</span>
-      <span class="skill-chip">内容策划</span>
-      <span class="skill-chip">文案写作</span>
-      <span class="skill-chip">用户行为分析</span>
-      <span class="skill-chip">Word / Excel / PPT</span>
-      <span class="skill-chip">微信公众号</span>
-      <span class="skill-chip">GitHub Pages</span>
-      <span class="skill-chip">基础前端开发</span>
+    <p class="section-tag reveal">技能与经历</p>
+
+    <!-- Skills -->
+    <h2 class="reveal">能立刻上手的</h2>
+    <div class="skills-flex reveal" style="margin-bottom:56px;">
+      <span class="skill-pill pri">AI 编程 (Claude)</span>
+      <span class="skill-pill pri">AI 视频生成 (可灵)</span>
+      <span class="skill-pill pri">数据驱动运营</span>
+      <span class="skill-pill">英语六级</span>
+      <span class="skill-pill">英文 Listing 撰写</span>
+      <span class="skill-pill">小红书运营</span>
+      <span class="skill-pill">内容策划</span>
+      <span class="skill-pill">文案写作</span>
+      <span class="skill-pill">用户行为分析</span>
+      <span class="skill-pill">Word · Excel · PPT</span>
+      <span class="skill-pill">Procreate 视觉设计</span>
+      <span class="skill-pill">GitHub Pages</span>
     </div>
-  </div>
-</section>
 
-<!-- ===== Experience ===== -->
-<section id="experience">
-  <div class="container">
-    <p class="section-label reveal">工作经历</p>
-    <h2 class="section-title reveal">一年教培 · 数据驱动结果</h2>
-
-    <div class="timeline reveal">
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-header">
-          <div><span class="timeline-role">学科教师</span> · <span class="timeline-org">禧阅教育培训有限公司</span></div>
-          <span class="timeline-date">2025.05 – 2026.06</span>
+    <!-- Experience -->
+    <h2 class="reveal">工作经历</h2>
+    <div class="timeline reveal" style="margin-top:28px;">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-head">
+          <span class="tl-role">学科教师</span>
+          <span class="tl-org">禧阅教育培训有限公司</span>
+          <span class="tl-date">2025.05 – 2026.06</span>
         </div>
         <ul>
-          <li>负责10人小班及一对一教学，独立备课、教研、授课全流程，覆盖<strong>初中数学、地理、化学及高中地理</strong>多学科</li>
-          <li>拆解近5年中高考考点与考频，建立个性化题库体系，搭建"学情诊断→薄弱点突破→正向反馈"的教学方法论</li>
-          <li>核心成果：初中数学班人均提分20-30分；中考化学冲刺班均分提升20分；续课率<strong>高于机构均值25%</strong>；服务满意度<strong>100%</strong>，零投诉零差评</li>
-          <li>入职后从语文地理方向被调至数学化学方向，<strong>全程无人带教</strong>，独立完成跨学科教研——证明快速学习与知识迁移能力</li>
+          <li>负责 10 人小班及一对一教学，独立备课教研授课全流程，覆盖初中数学、地理、化学及高中地理</li>
+          <li>拆解近 5 年中高考考点与考频，建立个性化题库，搭建"学情诊断→薄弱点突破→正向反馈"方法论</li>
+          <li>初中数学班人均提分 20-30 分；中考化学冲刺班均分提升 20 分；续课率<strong>高于机构均值 25%</strong>；满意度<strong>100%</strong>零投诉</li>
+          <li>从语文地理被调至数学化学，<strong>全程无人带教</strong>，独立跨学科教研——证明快速学习与知识迁移能力</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== Education ===== -->
-<section>
-  <div class="container">
-    <p class="section-label reveal">教育背景</p>
-    <h2 class="section-title reveal">广东财经大学</h2>
-
-    <div class="edu-card reveal">
-      <div>
-        <div class="edu-school">广东财经大学</div>
-        <div class="edu-degree">汉语言文学 · 本科 · 2021.09 – 2025.06</div>
-        <div class="edu-awards">
-          <span class="award">🏅 院长奖学金（前1%）</span>
-          <span class="award">📚 学业优秀奖</span>
-          <span class="award">💪 自强不息奖</span>
-          <span class="award">🤝 社会公益奖</span>
-        </div>
-      </div>
-      <div class="edu-stat">
-        <div class="val">3.84</div>
-        <div class="lbl">GPA / 5.0</div>
-        <div style="margin-top:12px; color: var(--text2); font-size: 0.88rem;">专业前10%</div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ===== Contact ===== -->
-<section id="contact">
-  <div class="container">
-    <p class="section-label reveal">联系方式</p>
-    <h2 class="section-title reveal">期待沟通</h2>
+<section id="contact" style="min-height:60vh;">
+  <div class="container" style="width:100%;">
+    <p class="section-tag reveal">联系方式</p>
+    <h2 class="reveal" style="margin-bottom: 32px;">期待你的消息</h2>
 
-    <div class="contact-grid reveal">
-      <div class="contact-item">
-        <span class="contact-icon">📞</span>
-        <div class="label">电话</div>
-        <div class="val">17675637717</div>
+    <div class="contact-row reveal">
+      <div class="contact-card">
+        <div class="icon">📞</div><div class="label">电话</div>
+        <div class="value">17675637717</div>
       </div>
-      <div class="contact-item">
-        <span class="contact-icon">📧</span>
-        <div class="label">邮箱</div>
-        <div class="val">1822977645@qq.com</div>
+      <div class="contact-card">
+        <div class="icon">📧</div><div class="label">邮箱</div>
+        <div class="value">1822977645@qq.com</div>
       </div>
-      <div class="contact-item">
-        <span class="contact-icon">📍</span>
-        <div class="label">所在地</div>
-        <div class="val">广东 · 广州</div>
+      <div class="contact-card">
+        <div class="icon">📍</div><div class="label">所在地</div>
+        <div class="value">广东 · 广州</div>
       </div>
-    </div>
-
-    <div style="text-align:center; margin-top:40px;" class="reveal">
-      <p style="color: var(--text2); margin-bottom: 16px;">用AI把想法变成产品。用数据把产品变成增长。这就是我。</p>
-      <a href="#" class="btn btn-primary">↑ 回到顶部</a>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="container">
-    © 2026 罗楚婷 · 用 AI &amp; Claude Code 构建 · 托管于 GitHub Pages
+    © 2026 罗楚婷 · Built with Vibe Coding · Hosted on GitHub Pages
   </div>
 </footer>
 
-<!-- ===== JS: Scroll reveal + Mobile menu ===== -->
+<!-- Vibe Coding Badge -->
+<div class="vibe-badge"><span class="spark">✨</span> Built with Vibe Coding</div>
+
+<!-- ===== JS ===== -->
 <script>
   // Scroll reveal
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  // Side nav - click to smooth scroll
+  const dots = document.querySelectorAll('.side-dot');
+  const sections = [...document.querySelectorAll('section[id]')];
 
-  // Mobile menu toggle
-  const menuBtn = document.getElementById('menuBtn');
-  const navLinks = document.getElementById('navLinks');
-  menuBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-    menuBtn.textContent = navLinks.classList.contains('open') ? '✕' : '☰';
-  });
-
-  // Close menu on link click
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('open');
-      menuBtn.textContent = '☰';
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const target = document.getElementById(dot.dataset.target);
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
     });
   });
 
-  // Nav hide/show on scroll
-  let lastScroll = 0;
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    if (currentScroll <= 0) { nav.style.transform = 'translateY(0)'; return; }
-    nav.style.transform = currentScroll > lastScroll ? 'translateY(-100%)' : 'translateY(0)';
-    lastScroll = currentScroll;
-  });
+  // Highlight active dot on scroll
+  const obs2 = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        dots.forEach(d => d.classList.remove('active'));
+        const dot = document.querySelector(`[data-target="${e.target.id}"]`);
+        if (dot) dot.classList.add('active');
+      }
+    });
+  }, { threshold: 0.4 });
+  sections.forEach(s => obs2.observe(s));
 
   // Lightbox
-  const lb = document.getElementById('lightbox');
+  const lb = document.getElementById('lb');
   const lbImg = document.getElementById('lbImg');
   const items = document.querySelectorAll('.gallery-item');
   let curIdx = 0;
@@ -659,21 +453,20 @@
     lb.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
-
   function closeLb() { lb.classList.remove('open'); document.body.style.overflow = ''; }
-  function prevLb() { openLb((curIdx - 1 + items.length) % items.length); }
-  function nextLb() { openLb((curIdx + 1) % items.length); }
+  function prev() { openLb((curIdx - 1 + items.length) % items.length); }
+  function next() { openLb((curIdx + 1) % items.length); }
 
-  items.forEach(item => item.addEventListener('click', () => openLb(parseInt(item.dataset.index))));
+  items.forEach(item => item.addEventListener('click', () => openLb(parseInt(item.dataset.idx))));
   document.getElementById('lbClose').addEventListener('click', closeLb);
-  document.getElementById('lbPrev').addEventListener('click', prevLb);
-  document.getElementById('lbNext').addEventListener('click', nextLb);
-  lb.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
-  document.addEventListener('keydown', (e) => {
+  document.getElementById('lbPrev').addEventListener('click', prev);
+  document.getElementById('lbNext').addEventListener('click', next);
+  lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+  document.addEventListener('keydown', e => {
     if (!lb.classList.contains('open')) return;
     if (e.key === 'Escape') closeLb();
-    if (e.key === 'ArrowLeft') prevLb();
-    if (e.key === 'ArrowRight') nextLb();
+    if (e.key === 'ArrowLeft') prev();
+    if (e.key === 'ArrowRight') next();
   });
 </script>
 
