@@ -264,6 +264,17 @@
   }
   @keyframes appear { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 
+  /* Return to splash button */
+  .return-btn {
+    position: fixed; bottom: 28px; right: 28px; z-index: 100;
+    width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line);
+    background: rgba(255,255,255,0.8); backdrop-filter: blur(8px);
+    cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center;
+    box-shadow: var(--shadow-sm); transition: all var(--transition);
+    color: var(--accent);
+  }
+  .return-btn:hover { transform: scale(1.1); box-shadow: var(--shadow); border-color: var(--accent); }
+
   /* ===== Responsive ===== */
   @media (max-width: 768px) {
     section { padding: 80px 0; }
@@ -456,18 +467,26 @@
       <div class="proj-row reveal">
         <div class="proj-left">
           <p class="proj-num">2026.06 – 至今</p>
-          <h3>AI 工具聚合网站</h3>
+          <h3>汉语言文学考研择校工具</h3>
           <p style="color:var(--ink3);font-size:0.85rem;">独立产品负责人</p>
         </div>
         <div class="proj-right">
-          <p class="proj-desc">从 0 到 1 独立完成一款 AI 工具导航网站的调研、设计、开发、上线与运营全流程。</p>
+
+          <p style="font-size:0.85rem;font-weight:600;margin-top:4px;margin-bottom:4px;">产品定位与差异化</p>
+          <p class="proj-desc">
+            市面上已有的择校工具，基本是考研机构做的——堆砌院校名单、分数线、招生人数，信息很全，但用户看完还是不知道<strong>自己该报哪个</strong>。我的产品不做信息黄页，做的是<strong>决策辅助</strong>：让用户输入自己的背景、英语水平、风险偏好，系统自动跑匹配算法，告诉 ta "你适合冲哪些、稳哪些、保哪些"，并给出 0-100 的匹配度评分和理由。
+          </p>
+          <p class="proj-desc">
+            核心差异在于：别人提供数据，我提供<strong>判断</strong>。考研学生最焦虑的不是"有哪些学校"，而是"我能不能考上"。这个洞察才是 14 万人看过、帖子在考研板块冲到热度第一的根本原因——不是推广做得好，是真的切到了用户嘴上不说、心里最在意的那个问题。
+          </p>
 
           <p style="font-size:0.85rem;font-weight:600;margin-top:16px;margin-bottom:4px;">做了什么</p>
           <ul class="proj-bullets">
-            <li>发现市面 AI 工具信息零散，用户找工具成本高，决定自己做一个聚合导航站</li>
-            <li>跑了十几个同类产品做竞品分析，访谈了身边使用 AI 工具的朋友，明确核心需求后动手设计功能架构</li>
-            <li>不会写代码，借助 AI 编程工具完成前端页面开发与数据管理，独立将产品部署上线</li>
-            <li>在小红书发布工具推荐笔记进行公域引流，同时搭建 4 个小红书粉丝群做私域留存与用户反馈收集</li>
+            <li>花了大量时间做竞品调研，发现所有同类产品都停留在"信息展示"层面，没人做"匹配决策"——这就是切入点</li>
+            <li>收集整理了 124 所高校 16 个维度的数据（不只是分数线，还有给分松紧、是否保护一志愿、复试淘汰率这些考生真正关心的隐性指标）</li>
+            <li>设计了一套评分算法：层次匹配 + 英语适配 + 考试范围 + 题型匹配 + 时间匹配，加权计算后输出冲/稳/保三级推荐</li>
+            <li>借助 vibe coding 完成前端开发与部署，独立推上线</li>
+            <li>在小红书发笔记做公域引流，建了 4 个粉丝群收集反馈，根据用户意见持续迭代功能</li>
           </ul>
 
           <p style="font-size:0.85rem;font-weight:600;margin-top:12px;margin-bottom:4px;">成效与产出</p>
@@ -478,12 +497,12 @@
             <div class="proj-metric"><div class="v">¥0</div><div class="l">推广成本</div></div>
           </div>
           <ul class="proj-bullets">
-            <li>零推广成本获得 3000+ 用户，验证了从内容引流到产品承接的完整增长路径</li>
-            <li>搭建了用户反馈→需求整理→功能迭代的闭环，产出一套可复用的运营方法</li>
+            <li>零推广成本，纯靠内容触达真实用户痛点，在考研专业板块冲到热度第一</li>
+            <li>这个项目验证的核心能力不是"会做产品"，而是<strong>能在噪音中识别真正的用户需求</strong>——用户要的不是更多信息，是有人帮 ta 做判断。这是运营和产品最底层的"黑犀牛能力"：看穿表面诉求，抓住深层痛点</li>
           </ul>
           <p style="margin-top:10px;font-size:0.85rem;">🔗 <a href="https://karka2666.github.io/kaoyan-selecter/" target="_blank" style="color:var(--ink);text-decoration:underline;">karka2666.github.io/kaoyan-selecter</a></p>
           <div class="proj-tags">
-            <span class="hl">产品设计</span><span class="hl">用户增长</span><span>竞品分析</span><span>AI 开发</span><span>私域运营</span>
+            <span class="hl">用户洞察</span><span class="hl">产品设计</span><span>vibe coding</span><span>算法逻辑</span><span>私域运营</span>
           </div>
         </div>
       </div>
@@ -568,7 +587,7 @@
           <p style="color:var(--ink3);font-size:0.85rem;">产品策划</p>
         </div>
         <div class="proj-right">
-          <p class="proj-desc">在教培机构兼职期间，主动承接暑假班课程产品从调研到方案交付的全流程策划工作。</p>
+          <p class="proj-desc">在教培机构工作期间，主动承接暑假班课程产品从调研到方案交付的全流程策划工作。</p>
 
           <p style="font-size:0.85rem;font-weight:600;margin-top:16px;margin-bottom:4px;">做了什么</p>
           <ul class="proj-bullets">
@@ -580,7 +599,7 @@
           <p style="font-size:0.85rem;font-weight:600;margin-top:12px;margin-bottom:4px;">成效与产出</p>
           <div class="proj-meta" style="margin-bottom:10px;">
             <div class="proj-metric"><div class="v">超预期 20%</div><div class="l">报名人数</div></div>
-            <div class="proj-metric"><div class="v">95%</div><div class="l">家长满意度</div></div>
+            <div class="proj-metric"><div class="v">100%</div><div class="l">家长满意度</div></div>
           </div>
           <ul class="proj-bullets">
             <li>产出 PRD + 运营方案 + PPT + 排版 PDF 全套方案文档，方案获机构直接采纳执行</li>
@@ -604,17 +623,22 @@
     <div class="divider reveal"></div>
 
     <div class="gallery-wrap reveal">
-      <div class="gallery-card xhs-card" data-idx="0"><img src="images/xhs-01.jpg" alt="小红书爆文 01" loading="lazy"></div>
-      <div class="gallery-card xhs-card" data-idx="1"><img src="images/xhs-02.jpg" alt="小红书爆文 02" loading="lazy"></div>
-      <div class="gallery-card xhs-card" data-idx="2"><img src="images/xhs-03.jpg" alt="小红书爆文 03" loading="lazy"></div>
-      <div class="gallery-card xhs-card" data-idx="3"><img src="images/xhs-04.jpg" alt="小红书爆文 04" loading="lazy"></div>
-      <div class="gallery-card xhs-card" data-idx="4"><img src="images/xhs-05.jpg" alt="小红书爆文 05" loading="lazy"></div>
-      <div class="gallery-card xhs-card" data-idx="5"><img src="images/xhs-06.jpg" alt="小红书爆文 06" loading="lazy"></div>
-      <div class="gallery-card xhs-card" data-idx="6"><img src="images/xhs-07.jpg" alt="小红书爆文 07" loading="lazy"></div>
-      <div class="gallery-card xhs-card" data-idx="7"><img src="images/xhs-08.jpg" alt="小红书爆文 08" loading="lazy"></div>
-      <div class="gallery-card xhs-card" data-idx="8"><img src="images/xhs-09.jpg" alt="小红书数据 01" loading="lazy"></div>
-      <div class="gallery-card xhs-card" data-idx="9"><img src="images/xhs-10.jpg" alt="小红书数据 02" loading="lazy"></div>
+      <!-- 数据总览放前面 — 树状逻辑 -->
+      <div class="gallery-card xhs-card" data-idx="0"><img src="images/xhs-09.jpg" alt="账号数据总览" loading="lazy"></div>
+      <div class="gallery-card xhs-card" data-idx="1"><img src="images/xhs-10.jpg" alt="爆款笔记数据" loading="lazy"></div>
+      <!-- 爆款内容 -->
+      <div class="gallery-card xhs-card" data-idx="2"><img src="images/xhs-01.jpg" alt="爆文 01" loading="lazy"></div>
+      <div class="gallery-card xhs-card" data-idx="3"><img src="images/xhs-02.jpg" alt="爆文 02" loading="lazy"></div>
+      <div class="gallery-card xhs-card" data-idx="4"><img src="images/xhs-03.jpg" alt="爆文 03" loading="lazy"></div>
+      <div class="gallery-card xhs-card" data-idx="5"><img src="images/xhs-04.jpg" alt="爆文 04" loading="lazy"></div>
+      <div class="gallery-card xhs-card" data-idx="6"><img src="images/xhs-05.jpg" alt="爆文 05" loading="lazy"></div>
+      <div class="gallery-card xhs-card" data-idx="7"><img src="images/xhs-06.jpg" alt="爆文 06" loading="lazy"></div>
+      <div class="gallery-card xhs-card" data-idx="8"><img src="images/xhs-07.jpg" alt="爆文 07" loading="lazy"></div>
+      <div class="gallery-card xhs-card" data-idx="9"><img src="images/xhs-08.jpg" alt="爆文 08" loading="lazy"></div>
     </div>
+    <p class="reveal" style="font-family:'PingFang SC',sans-serif;font-size:0.72rem;color:var(--ink3);text-align:center;margin-top:8px;letter-spacing:0.06em;">
+      ◇ 数据总览 ◇ — ◇ 爆款内容矩阵 ◇
+    </p>
   </div>
 </section>
 
@@ -670,6 +694,7 @@
 </footer>
 
 <div class="vibe-tag">✦ Built with Vibe Coding</div>
+<button class="return-btn" id="returnBtn" title="返回首页">⟳</button>
 
 <script>
   // Splash — click anywhere to enter
@@ -680,6 +705,12 @@
     setTimeout(() => { splash.style.display = 'none'; }, 1600);
   });
   if (sessionStorage.getItem('entered')) splash.style.display = 'none';
+
+  // Return to splash
+  document.getElementById('returnBtn').addEventListener('click', () => {
+    sessionStorage.removeItem('entered');
+    location.reload();
+  });
 
   // Reveal on scroll
   const observer = new IntersectionObserver(entries => {
