@@ -72,7 +72,7 @@
   .hero-avatar { width: 100px; height: 100px; border-radius: 50%; background: var(--line2); display: flex; align-items: center; justify-content: center; font-size: 2.4rem; color: var(--ink3); }
   .hero-avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
   .hero h1 { margin-bottom: 20px; }
-  .hero-tagline { font-size: 1.1rem; color: var(--ink2); max-width: 480px; line-height: 1.9; }
+  .hero-tagline { font-size: 1.1rem; color: var(--ink2); max-width: 500px; line-height: 1.9; }
   .hero-tagline em { font-style: normal; color: var(--ink); font-weight: 500; }
 
   .hero-stats { display: flex; gap: 44px; margin-top: 40px; }
@@ -96,37 +96,27 @@
   .skill-tag:hover { border-color: var(--ink3); transform: translateY(-2px); }
   .skill-tag.hl { background: var(--ink); color: var(--ivory); border-color: var(--ink); }
 
-  /* ===== Projects Grid ===== */
-  .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  /* ===== Projects ===== */
+  .project-list { display: flex; flex-direction: column; gap: 64px; }
 
-  .project-card {
-    background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
-    padding: 36px 32px; position: relative; overflow: hidden;
-    transition: all var(--transition); cursor: default;
-  }
-  .project-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
-    border-color: #d5cfc6;
-  }
-  .project-card:hover .project-icon { transform: scale(1.08); }
-  .project-card.main { grid-column: 1 / -1; }
-  .project-card.main::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--ink); }
+  .proj-row { display: grid; grid-template-columns: 200px 1fr; gap: 48px; align-items: start; }
 
-  .project-icon { font-size: 1.5rem; display: inline-block; margin-bottom: 14px; transition: transform 0.4s ease; }
-  .project-card h3 { margin-bottom: 8px; }
-  .project-card .desc { color: var(--ink2); font-size: 0.9rem; line-height: 1.75; }
+  .proj-left .proj-num { font-family: "PingFang SC", sans-serif; font-size: 0.75rem; color: var(--ink3); letter-spacing: 0.12em; margin-bottom: 6px; }
+  .proj-left h3 { font-size: 1.2rem; font-weight: 600; line-height: 1.4; }
 
-  .project-metrics { display: flex; gap: 32px; margin: 20px 0; padding: 16px 0; border-top: 1px solid var(--line2); border-bottom: 1px solid var(--line2); }
-  .project-metric .v { font-size: 1.5rem; font-weight: 600; }
-  .project-metric .l { font-family: "PingFang SC", sans-serif; font-size: 0.75rem; color: var(--ink3); }
+  .proj-right .proj-desc { color: var(--ink2); font-size: 0.92rem; line-height: 1.85; margin-bottom: 16px; }
 
-  .project-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
-  .project-tags span {
-    font-family: "PingFang SC", sans-serif; font-size: 0.75rem; padding: 3px 10px;
-    border-radius: 12px; background: var(--ivory2); color: var(--ink2);
-  }
-  .project-tags span.primary { background: var(--ink); color: var(--ivory); }
+  .proj-meta { display: flex; gap: 32px; padding: 14px 0; border-top: 1px solid var(--line2); border-bottom: 1px solid var(--line2); margin-bottom: 14px; }
+  .proj-meta .v { font-size: 1.3rem; font-weight: 600; }
+  .proj-meta .l { font-family: "PingFang SC", sans-serif; font-size: 0.73rem; color: var(--ink3); }
+
+  .proj-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+  .proj-tags span { font-family: "PingFang SC", sans-serif; font-size: 0.75rem; padding: 4px 12px; border-radius: 14px; background: var(--ivory2); color: var(--ink2); }
+  .proj-tags span.hl { background: var(--ink); color: var(--ivory); }
+
+  .proj-bullets { margin-top: 12px; padding-left: 18px; }
+  .proj-bullets li { color: var(--ink2); font-size: 0.88rem; line-height: 1.8; margin-bottom: 6px; }
+  .proj-bullets li::marker { color: var(--ink3); }
 
   /* ===== Gallery ===== */
   .gallery-wrap { overflow-x: auto; overflow-y: hidden; white-space: nowrap; cursor: grab; scroll-snap-type: x mandatory; padding: 16px 0 28px; }
@@ -177,9 +167,9 @@
     .hero-stats { gap: 24px; }
     .info-strip { gap: 16px; }
 
-    .projects-grid { grid-template-columns: 1fr; }
-    .project-card.main { grid-column: 1; }
-    .project-metrics { gap: 18px; }
+    .proj-row { grid-template-columns: 1fr; gap: 16px; }
+    .proj-left { margin-bottom: 8px; }
+    .proj-meta { gap: 18px; flex-wrap: wrap; }
 
     .gallery-card { width: 200px; }
     .gallery-card img { height: 260px; }
@@ -220,7 +210,7 @@
       <div>
         <h1 class="hero-name">罗楚婷</h1>
         <p class="hero-tagline">
-          AI-native 运营实践者。<em>14 万浏览产品</em>的创造者，<em>100% 满意度</em>的交付者。
+          AI-native 产品实践者。从需求洞察到产品落地，<em>3000+ 用户</em>与<em>14 万曝光</em>的真实验证。
         </p>
         <div class="hero-stats">
           <div class="hero-stat"><div class="val">14万+</div><div class="lbl">产品浏览</div></div>
@@ -292,64 +282,77 @@
     <h2 class="reveal">项目经历</h2>
     <div class="divider reveal"></div>
 
-    <div class="projects-grid">
+    <div class="project-list">
 
-      <!-- Main: AI Website -->
-      <div class="project-card main reveal">
-        <span class="project-icon">✦</span>
-        <h3>AI 数据型产品 · 独立开发</h3>
-        <div class="project-metrics">
-          <div class="project-metric"><div class="v">14万+</div><div class="l">页面浏览</div></div>
-          <div class="project-metric"><div class="v">3000+</div><div class="l">真实用户</div></div>
-          <div class="project-metric"><div class="v">124 所</div><div class="l">高校数据</div></div>
-          <div class="project-metric"><div class="v">16 维</div><div class="l">数据结构</div></div>
+      <!-- Project 1: AI Website -->
+      <div class="proj-row reveal">
+        <div class="proj-left">
+          <p class="proj-num">2026.06 – 至今</p>
+          <h3>AI 工具聚合网站</h3>
+          <p style="color:var(--ink3);font-size:0.85rem;">独立产品负责人</p>
         </div>
-        <p class="desc">
-          使用 AI 编程工具从零完成产品全流程：需求调研 → 数据库搭建 → 评分算法设计 → 线上部署 → 用户数据追踪。整合 124 所高校 16 个维度的结构化数据，设计冲/稳/保三级梯度推荐算法。零推广成本，纯产品力驱动 14 万浏览与 3000+ 用户。<strong>完整验证了「数据驱动增长」的产品运营逻辑。</strong>
-        </p>
-        <div class="project-tags">
-          <span class="primary">AI 编程</span><span class="primary">数据算法</span>
-          <span>用户增长</span><span>数据追踪</span><span>产品迭代</span>
+        <div class="proj-right">
+          <p class="proj-desc">针对 AI 工具分散、用户查找成本高的痛点，独立启动产品项目，覆盖从需求洞察到用户运营的全流程。</p>
+          <div class="proj-meta">
+            <div class="proj-metric"><div class="v">3000+</div><div class="l">主动用户</div></div>
+            <div class="proj-metric"><div class="v">14万+</div><div class="l">小红书曝光</div></div>
+            <div class="proj-metric"><div class="v">4 个</div><div class="l">高粘性粉丝群</div></div>
+          </div>
+          <ul class="proj-bullets">
+            <li>用户调研：通过竞品分析与目标用户访谈，定位核心场景，输出用户画像及需求池文档</li>
+            <li>产品设计：独立梳理功能架构，借助 AI 工具完成 MVP 原型设计，推动项目按时上线</li>
+            <li>运营闭环：搭建公域引流 → 私域留存 → 产品优化的完整闭环，沉淀 4 个粉丝群</li>
+            <li>数据迭代：基于曝光与使用数据持续推动功能迭代，验证从 0 到 1 的全链路运营能力</li>
+          </ul>
+          <div class="proj-tags">
+            <span class="hl">产品设计</span><span class="hl">用户运营</span><span>需求调研</span><span>数据分析</span><span>私域搭建</span>
+          </div>
         </div>
       </div>
 
-      <!-- Product Planning: Summer Program -->
-      <div class="project-card reveal">
-        <span class="project-icon">◈</span>
-        <h3>暑期班 · 产品策划</h3>
-        <p class="desc">
-          教培的本质是<strong>售卖一个学习产品</strong>。我主动发现机构暑期业务空缺，独立完成市场调研（历史招生数据复盘）→ 产品设计（课程体系与定价策略）→ 运营方案（招生排期与人力配置）→ 财务测算（保守/正常双档营收模型）的全套产品策划。产出 PRD + 运营方案 + PPT + 排版 PDF，方案已获机构采纳。
-        </p>
-        <div class="project-tags">
-          <span class="primary">产品策划</span><span class="primary">运营方案</span>
-          <span>市场调研</span><span>财务测算</span><span>PRD</span>
+      <!-- Project 2: Poetry Flashcard -->
+      <div class="proj-row reveal">
+        <div class="proj-left">
+          <p class="proj-num">2026 – 至今</p>
+          <h3>古诗记忆闪卡</h3>
+          <p style="color:var(--ink3);font-size:0.85rem;">产品设计师</p>
+        </div>
+        <div class="proj-right">
+          <p class="proj-desc">针对考研学生古诗文背诵效率低的痛点，独立设计一款基于艾宾浩斯遗忘曲线算法的复习排期工具。</p>
+          <ul class="proj-bullets">
+            <li>需求洞察：通过访谈考研学生与分析主流背记工具，明确"智能排期复习"为核心差异化需求</li>
+            <li>功能设计：设计三种学习模式（新学 / 快速复习 / 精准补缺），满足不同阶段用户背记需求</li>
+            <li>数据结构：独立设计底层数据表结构（用户学习记录、卡片掌握程度、复习排期表等）</li>
+            <li>交付成果：输出完整 PRD（33KB），含页面路由、交互流程与技术方案，可作为产品求职作品集</li>
+          </ul>
+          <div class="proj-tags">
+            <span class="hl">PRD 撰写</span><span class="hl">数据结构</span><span>需求调研</span><span>功能设计</span><span>算法逻辑</span>
+          </div>
         </div>
       </div>
 
-      <!-- Xiaohongshu -->
-      <div class="project-card reveal">
-        <span class="project-icon">◇</span>
-        <h3>小红书内容运营</h3>
-        <div class="project-metrics">
-          <div class="project-metric"><div class="v">1500+</div><div class="l">真实粉丝</div></div>
+      <!-- Project 3: Xiaohongshu -->
+      <div class="proj-row reveal">
+        <div class="proj-left">
+          <p class="proj-num">2025.12 – 至今</p>
+          <h3>小红书生活类账号</h3>
+          <p style="color:var(--ink3);font-size:0.85rem;">独立运营人</p>
         </div>
-        <p class="desc">
-          独立运营个人账号，全流程把控选题策划、标题撰写、封面设计、发布时间。理解内容分发逻辑——<strong>标题决定打开率，内容决定转化率，封面决定点击率</strong>——与电商 Listing 优化逻辑高度一致。
-        </p>
-        <div class="project-tags">
-          <span>内容策划</span><span>用户增长</span><span>数据复盘</span>
-        </div>
-      </div>
-
-      <!-- Mini Program -->
-      <div class="project-card reveal">
-        <span class="project-icon">◎</span>
-        <h3>古诗记忆闪卡 · 产品设计</h3>
-        <p class="desc">
-          从考研学习痛点出发，设计基于<strong>艾宾浩斯遗忘曲线算法</strong>的复习排期工具，含三种记忆模式与 14 项补充功能。独立完成 33KB 完整 PRD 文档，涵盖数据结构设计、页面路由规划与技术方案选型。
-        </p>
-        <div class="project-tags">
-          <span>产品设计</span><span>算法逻辑</span><span>PRD</span><span>用户体验</span>
+        <div class="proj-right">
+          <p class="proj-desc">依托汉语言专业文案优势，搭建个人垂直类账号，探索内容创作到商业变现的完整路径。</p>
+          <div class="proj-meta">
+            <div class="proj-metric"><div class="v">1500+</div><div class="l">粉丝</div></div>
+            <div class="proj-metric"><div class="v">多笔</div><div class="l">品牌合作</div></div>
+            <div class="proj-metric"><div class="v">Procreate</div><div class="l">视觉设计</div></div>
+          </div>
+          <ul class="proj-bullets">
+            <li>内容策划：独立完成选题、文案撰写、封面设计及发布，Procreate 统一账号视觉风格</li>
+            <li>商业合作：对接品牌方商务需求，结合产品特性与账号风格制定推广方案并完成内容交付</li>
+            <li>数据复盘：定期复盘流量与转化数据，总结爆款要素，迭代内容策略</li>
+          </ul>
+          <div class="proj-tags">
+            <span class="hl">内容运营</span><span class="hl">商业变现</span><span>爆款文案</span><span>视觉设计</span><span>数据复盘</span>
+          </div>
         </div>
       </div>
 
