@@ -85,101 +85,77 @@
     -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
   }
 
-  /* ===== Splash Screen ===== */
+  /* ===== Splash Screen — 水仙意境 ===== */
   .splash {
-    position: fixed; inset: 0; z-index: 9999; overflow: hidden;
-    background: linear-gradient(180deg, #fdf6f4 0%, #f5faf7 55%, #eef7f2 100%);
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    transition: opacity 0.8s ease, transform 1s ease;
+    position: fixed; inset: 0; z-index: 9999; overflow: hidden; cursor: pointer;
+    background: linear-gradient(170deg, #fdf6f3 0%, #f8f2f0 20%, #f3f7f4 55%, #eef6f0 100%);
+    transition: opacity 1.5s ease;
   }
-  .splash.exit { opacity: 0; transform: scale(1.04); pointer-events: none; }
+  .splash.exit { opacity: 0; pointer-events: none; }
 
-  /* Lily image */
-  .splash-lily {
-    position: relative; width: 55%; max-width: 420px; margin-bottom: 8px;
-    filter: drop-shadow(0 8px 24px rgba(180,140,140,0.25));
-    animation: lilyFloat 4s ease-in-out infinite; z-index: 2;
+  /* Lily blended into background — 溶图 */
+  .splash-lily-bg {
+    position: absolute; right: -8%; bottom: -10%; width: 62%; max-width: 520px;
+    opacity: 0.5; pointer-events: none;
+    filter: blur(0.5px) saturate(0.9);
+    mask-image: radial-gradient(ellipse 55% 50% at 60% 55%, rgba(0,0,0,0.7) 25%, rgba(0,0,0,0.25) 60%, rgba(0,0,0,0) 100%);
+    -webkit-mask-image: radial-gradient(ellipse 55% 50% at 60% 55%, rgba(0,0,0,0.7) 25%, rgba(0,0,0,0.25) 60%, rgba(0,0,0,0) 100%);
   }
-  .splash-lily img { width: 100%; display: block; }
-  @keyframes lilyFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-  }
+  .splash-lily-bg img { width: 100%; display: block; }
 
-  /* Water droplet */
-  .droplet-wrap {
-    position: relative; z-index: 3; cursor: pointer; margin-top: -20px;
-  }
-  .droplet {
-    width: 18px; height: 26px; margin: 0 auto;
-    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(200,160,160,0.7));
-    border-radius: 80% 0 55% 50% / 55% 0 80% 50%; transform: rotate(-35deg);
-    box-shadow: 0 2px 12px rgba(180,140,150,0.35);
-    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-  .droplet-wrap.clicked .droplet {
-    transform: rotate(-35deg) translateY(180px) scale(0.6);
-    opacity: 0;
-  }
-  .droplet-label {
-    position: absolute; left: 50%; top: 36px; transform: translateX(-50%);
-    font-size: 0.82rem; font-weight: 500; color: var(--accent-dark);
-    letter-spacing: 0.06em; white-space: nowrap; text-align: center;
-    transition: opacity 0.6s ease;
-    font-family: "PingFang SC", sans-serif;
-  }
-  .droplet-wrap.clicked .droplet-label { opacity: 0; }
-
-  /* Ripple rings */
-  .ripples {
-    position: relative; z-index: 1; height: 40px; margin-top: 10px;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .ripple {
-    position: absolute; width: 0; height: 0; border-radius: 50%;
-    border: 1.5px solid rgba(168,200,185,0.6);
-    opacity: 0;
-    transition: none;
-  }
-  .droplet-wrap.clicked ~ .ripples .ripple { animation: rippleOut 1.6s ease-out forwards; }
-  .ripple:nth-child(2) { animation-delay: 0.2s !important; }
-  .ripple:nth-child(3) { animation-delay: 0.4s !important; }
-
-  @keyframes rippleOut {
-    0% { width: 0; height: 0; opacity: 0.8; }
-    60% { opacity: 0.4; }
-    100% { width: 260px; height: 260px; opacity: 0; }
-  }
-
-  /* Splash title */
-  .splash-title {
-    margin-top: 24px; text-align: center; z-index: 2;
-    opacity: 0; transition: opacity 0.8s ease 1.2s;
-  }
-  .droplet-wrap.clicked ~ .splash-title { opacity: 1; }
-  .splash-title .name {
-    font-size: clamp(2rem, 4vw, 2.6rem); font-weight: 600;
-    color: var(--accent-dark); letter-spacing: 0.08em;
-  }
-  .splash-title .hint {
-    font-family: "PingFang SC", sans-serif; font-size: 0.82rem;
-    color: var(--ink3); margin-top: 6px; letter-spacing: 0.1em;
-  }
-
-  .splash-mist {
+  /* Mist layers — 水气氤氲 */
+  .splash-mist-1 {
     position: absolute; inset: 0; pointer-events: none;
     background:
-      radial-gradient(ellipse 40% 30% at 50% 35%, rgba(255,255,255,0.5) 0%, transparent 70%),
-      radial-gradient(ellipse 60% 25% at 50% 75%, rgba(184,200,186,0.15) 0%, transparent 60%);
+      radial-gradient(ellipse 50% 35% at 35% 40%, rgba(255,255,255,0.6) 0%, transparent 65%),
+      radial-gradient(ellipse 65% 30% at 55% 65%, rgba(210,225,215,0.3) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 25% at 50% 30%, rgba(250,240,238,0.4) 0%, transparent 55%);
+  }
+  .splash-mist-2 {
+    position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(circle 280px at 70% 55%, rgba(200,180,175,0.12) 0%, transparent 100%),
+      radial-gradient(circle 200px at 30% 35%, rgba(255,255,255,0.5) 0%, transparent 100%);
+    animation: mistShift 8s ease-in-out infinite;
+  }
+  @keyframes mistShift {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+  }
+
+  /* Typography — 飘逸大气 */
+  .splash-text {
+    position: absolute; left: 10%; top: 50%; transform: translateY(-50%); z-index: 4;
+    max-width: 400px;
+  }
+  .splash-text .brand {
+    font-size: clamp(2.8rem, 6vw, 4.2rem); font-weight: 600;
+    color: var(--accent-dark); letter-spacing: 0.12em; line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .splash-text .subtitle {
+    font-size: clamp(1rem, 2vw, 1.3rem); font-weight: 400;
+    color: var(--ink2); letter-spacing: 0.1em; line-height: 1.7;
+    font-family: "PingFang SC", sans-serif;
+  }
+  .splash-text .subtitle em {
+    font-style: normal; font-weight: 500; color: var(--accent);
+  }
+  .splash-enter {
+    margin-top: 28px; display: inline-block;
+    font-family: "PingFang SC", sans-serif; font-size: 0.88rem;
+    color: var(--ink3); letter-spacing: 0.18em;
+    animation: breathe 3s ease-in-out infinite;
+  }
+  @keyframes breathe {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.9; }
   }
 
   @media (max-width: 768px) {
-    .splash-lily { width: 72%; max-width: 300px; }
-    @keyframes rippleOut {
-      0% { width: 0; height: 0; opacity: 0.8; }
-      60% { opacity: 0.4; }
-      100% { width: 200px; height: 200px; opacity: 0; }
-    }
+    .splash-lily-bg { width: 85%; right: -20%; bottom: -5%; opacity: 0.35; }
+    .splash-text { left: 8%; max-width: 280px; }
+    .splash-text .brand { font-size: 2.2rem; }
   }
   .hero-grid { display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: start; }
   .hero-avatar { width: 110px; height: 140px; border-radius: 8px; overflow: hidden; background: var(--line2); flex-shrink: 0; margin-top: 8px; }
@@ -320,18 +296,13 @@
 
 <!-- Splash Screen -->
 <div class="splash" id="splash">
-  <div class="splash-mist"></div>
-  <div class="splash-lily"><img src="images/hero-bg.png" alt="香水百合"></div>
-  <div class="droplet-wrap" id="dropletWrap">
-    <div class="droplet"></div>
-    <div class="droplet-label">罗楚婷的新媒体运营作品集</div>
-  </div>
-  <div class="ripples">
-    <div class="ripple"></div><div class="ripple"></div><div class="ripple"></div>
-  </div>
-  <div class="splash-title">
-    <div class="name">罗楚婷</div>
-    <div class="hint">正在进入…</div>
+  <div class="splash-lily-bg"><img src="images/hero-bg.png" alt=""></div>
+  <div class="splash-mist-1"></div>
+  <div class="splash-mist-2"></div>
+  <div class="splash-text">
+    <div class="brand">罗楚婷</div>
+    <div class="subtitle">新媒体运营<em>作品集</em></div>
+    <div class="splash-enter">轻 触 进 入</div>
   </div>
 </div>
 
@@ -701,19 +672,12 @@
 <div class="vibe-tag">✦ Built with Vibe Coding</div>
 
 <script>
-  // Splash — click droplet to enter
+  // Splash — click anywhere to enter
   const splash = document.getElementById('splash');
-  const dropletWrap = document.getElementById('dropletWrap');
-  dropletWrap.addEventListener('click', () => {
-    if (dropletWrap.classList.contains('clicked')) return;
-    dropletWrap.classList.add('clicked');
-    // After ripple animation, slide to content
-    setTimeout(() => {
-      splash.classList.add('exit');
-      sessionStorage.setItem('entered', '1');
-    }, 1800);
-    // Remove splash from DOM after transition
-    setTimeout(() => { splash.style.display = 'none'; }, 3000);
+  splash.addEventListener('click', () => {
+    splash.classList.add('exit');
+    sessionStorage.setItem('entered', '1');
+    setTimeout(() => { splash.style.display = 'none'; }, 1600);
   });
   if (sessionStorage.getItem('entered')) splash.style.display = 'none';
 
