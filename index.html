@@ -68,8 +68,8 @@
 
   /* ===== Hero ===== */
   .hero { padding: 180px 0 100px; }
-  .hero-grid { display: grid; grid-template-columns: auto 1fr; gap: 48px; align-items: center; }
-  .hero-avatar { width: 110px; height: 140px; border-radius: 8px; overflow: hidden; background: var(--line2); flex-shrink: 0; }
+  .hero-grid { display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: start; }
+  .hero-avatar { width: 110px; height: 140px; border-radius: 8px; overflow: hidden; background: var(--line2); flex-shrink: 0; margin-top: 8px; }
   .hero-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .hero h1 { margin-bottom: 20px; }
   .hero-tagline { font-size: 1.1rem; color: var(--ink2); max-width: 500px; line-height: 1.9; }
@@ -131,6 +131,24 @@
   }
   .gallery-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
   .gallery-card img { width: 100%; height: 340px; object-fit: cover; display: block; }
+
+  /* ===== Design Masonry Grid ===== */
+  .masonry { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .masonry-item {
+    border-radius: var(--radius); overflow: hidden; cursor: pointer;
+    transition: all var(--transition); box-shadow: var(--shadow-sm);
+    background: var(--line2);
+  }
+  .masonry-item:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .masonry-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .masonry-item.tall { grid-row: span 2; }
+  .masonry-item.wide { grid-column: span 2; }
+  .masonry-item.big { grid-column: span 2; grid-row: span 2; }
+
+  @media (max-width: 768px) {
+    .masonry { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .masonry-item.big { grid-column: span 2; grid-row: span 1; }
+  }
 
   /* ===== Lightbox ===== */
   .lb { display: none; position: fixed; inset: 0; z-index: 300; background: rgba(12,12,12,0.94); align-items: center; justify-content: center; padding: 40px; }
@@ -445,21 +463,21 @@
   <div class="container" style="width:100%; max-width:1100px;">
     <p class="section-num sans reveal">04</p>
     <h2 class="reveal">视觉设计</h2>
-    <p class="reveal" style="color:var(--ink3);font-size:0.88rem;margin-top:6px;">Procreate 数字绘画 · 点击放大 · 左右滑动</p>
+    <p class="reveal" style="color:var(--ink3);font-size:0.88rem;margin-top:6px;">Procreate 数字绘画 · 点击放大浏览</p>
     <div class="divider reveal"></div>
 
-    <div class="gallery-wrap reveal">
-      <div class="gallery-card des-card" data-idx="0"><img src="images/design-01.jpg" alt="设计作品 01" loading="lazy"></div>
-      <div class="gallery-card des-card" data-idx="1"><img src="images/design-02.jpg" alt="设计作品 02" loading="lazy"></div>
-      <div class="gallery-card des-card" data-idx="2"><img src="images/design-03.jpg" alt="设计作品 03" loading="lazy"></div>
-      <div class="gallery-card des-card" data-idx="3"><img src="images/design-04.jpg" alt="设计作品 04" loading="lazy"></div>
-      <div class="gallery-card des-card" data-idx="4"><img src="images/design-05.jpg" alt="设计作品 05" loading="lazy"></div>
-      <div class="gallery-card des-card" data-idx="5"><img src="images/design-06.jpg" alt="设计作品 06" loading="lazy"></div>
-      <div class="gallery-card des-card" data-idx="6"><img src="images/design-07.jpg" alt="设计作品 07" loading="lazy"></div>
-      <div class="gallery-card des-card" data-idx="7"><img src="images/design-08.jpg" alt="设计作品 08" loading="lazy"></div>
-      <div class="gallery-card des-card" data-idx="8"><img src="images/design-09.jpg" alt="设计作品 09" loading="lazy"></div>
-      <div class="gallery-card des-card" data-idx="9"><img src="images/design-10.jpg" alt="设计作品 10" loading="lazy"></div>
-      <div class="gallery-card des-card" data-idx="10"><img src="images/design-11.jpg" alt="设计作品 11" loading="lazy"></div>
+    <div class="masonry reveal">
+      <div class="masonry-item wide des-card" data-idx="0"><img src="images/design-01.jpg" alt="设计作品 01" loading="lazy"></div>
+      <div class="masonry-item tall des-card" data-idx="1"><img src="images/design-02.jpg" alt="设计作品 02" loading="lazy"></div>
+      <div class="masonry-item des-card" data-idx="2"><img src="images/design-03.jpg" alt="设计作品 03" loading="lazy"></div>
+      <div class="masonry-item tall des-card" data-idx="3"><img src="images/design-04.jpg" alt="设计作品 04" loading="lazy"></div>
+      <div class="masonry-item des-card" data-idx="4"><img src="images/design-05.jpg" alt="设计作品 05" loading="lazy"></div>
+      <div class="masonry-item wide des-card" data-idx="5"><img src="images/design-06.jpg" alt="设计作品 06" loading="lazy"></div>
+      <div class="masonry-item des-card" data-idx="6"><img src="images/design-07.jpg" alt="设计作品 07" loading="lazy"></div>
+      <div class="masonry-item des-card" data-idx="7"><img src="images/design-08.jpg" alt="设计作品 08" loading="lazy"></div>
+      <div class="masonry-item des-card" data-idx="8"><img src="images/design-09.jpg" alt="设计作品 09" loading="lazy"></div>
+      <div class="masonry-item wide des-card" data-idx="9"><img src="images/design-10.jpg" alt="设计作品 10" loading="lazy"></div>
+      <div class="masonry-item tall des-card" data-idx="10"><img src="images/design-11.jpg" alt="设计作品 11" loading="lazy"></div>
     </div>
   </div>
 
