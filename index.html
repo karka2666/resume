@@ -230,13 +230,10 @@
   }
   .masonry-item:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
   .masonry-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .masonry-item.tall { grid-row: span 2; }
-  .masonry-item.wide { grid-column: span 2; }
-  .masonry-item.big { grid-column: span 2; grid-row: span 2; }
+  .masonry-item { aspect-ratio: 3/4; }
 
   @media (max-width: 768px) {
     .masonry { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .masonry-item.big { grid-column: span 2; grid-row: span 1; }
   }
 
   /* ===== Lightbox ===== */
@@ -680,17 +677,17 @@
     <div class="divider reveal"></div>
 
     <div class="masonry reveal">
-      <div class="masonry-item wide des-card" data-idx="0"><img src="images/design-01.jpg" alt="设计作品 01" loading="lazy"></div>
-      <div class="masonry-item tall des-card" data-idx="1"><img src="images/design-02.jpg" alt="设计作品 02" loading="lazy"></div>
+      <div class="masonry-item des-card" data-idx="0"><img src="images/design-01.jpg" alt="设计作品 01" loading="lazy"></div>
+      <div class="masonry-item des-card" data-idx="1"><img src="images/design-02.jpg" alt="设计作品 02" loading="lazy"></div>
       <div class="masonry-item des-card" data-idx="2"><img src="images/design-03.jpg" alt="设计作品 03" loading="lazy"></div>
-      <div class="masonry-item tall des-card" data-idx="3"><img src="images/design-04.jpg" alt="设计作品 04" loading="lazy"></div>
+      <div class="masonry-item des-card" data-idx="3"><img src="images/design-04.jpg" alt="设计作品 04" loading="lazy"></div>
       <div class="masonry-item des-card" data-idx="4"><img src="images/design-05.jpg" alt="设计作品 05" loading="lazy"></div>
-      <div class="masonry-item wide des-card" data-idx="5"><img src="images/design-06.jpg" alt="设计作品 06" loading="lazy"></div>
+      <div class="masonry-item des-card" data-idx="5"><img src="images/design-06.jpg" alt="设计作品 06" loading="lazy"></div>
       <div class="masonry-item des-card" data-idx="6"><img src="images/design-07.jpg" alt="设计作品 07" loading="lazy"></div>
       <div class="masonry-item des-card" data-idx="7"><img src="images/design-08.jpg" alt="设计作品 08" loading="lazy"></div>
       <div class="masonry-item des-card" data-idx="8"><img src="images/design-09.jpg" alt="设计作品 09" loading="lazy"></div>
-      <div class="masonry-item wide des-card" data-idx="9"><img src="images/design-10.jpg" alt="设计作品 10" loading="lazy"></div>
-      <div class="masonry-item tall des-card" data-idx="10"><img src="images/design-11.jpg" alt="设计作品 11" loading="lazy"></div>
+      <div class="masonry-item des-card" data-idx="9"><img src="images/design-10.jpg" alt="设计作品 10" loading="lazy"></div>
+      <div class="masonry-item des-card" data-idx="10"><img src="images/design-11.jpg" alt="设计作品 11" loading="lazy"></div>
     </div>
   </div>
 
@@ -706,7 +703,7 @@
 <!-- ===== Contact ===== -->
 <section id="contact" style="padding-bottom:60px;">
   <div class="container">
-    <p class="section-num sans reveal">04</p>
+    <p class="section-num sans reveal">05</p>
     <h2 class="reveal">联系方式</h2>
     <div class="divider reveal"></div>
 
