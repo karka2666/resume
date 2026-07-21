@@ -280,6 +280,48 @@
     .section-title { margin-bottom: 32px; }
   }
 
+  /* ===== Design Gallery ===== */
+  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+  .gallery-item {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    overflow: hidden; cursor: pointer; transition: all var(--transition);
+    aspect-ratio: 3/4;
+  }
+  .gallery-item:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* Lightbox */
+  .lightbox {
+    display: none; position: fixed; inset: 0; z-index: 200;
+    background: rgba(0,0,0,0.9); align-items: center; justify-content: center;
+    padding: 40px;
+  }
+  .lightbox.open { display: flex; }
+
+  .lightbox img { max-width: 90vw; max-height: 85vh; border-radius: 8px; object-fit: contain; }
+
+  .lightbox-close {
+    position: absolute; top: 20px; right: 24px; background: none; border: none;
+    color: #fff; font-size: 2rem; cursor: pointer; line-height: 1;
+  }
+
+  .lightbox-prev, .lightbox-next {
+    position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.12);
+    border: none; color: #fff; font-size: 2rem; cursor: pointer; padding: 16px 12px;
+    border-radius: 8px; transition: background var(--transition);
+  }
+  .lightbox-prev:hover, .lightbox-next:hover { background: rgba(255,255,255,0.25); }
+  .lightbox-prev { left: 16px; }
+  .lightbox-next { right: 16px; }
+
+  @media (max-width: 768px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .lightbox { padding: 20px; }
+    .lightbox-prev, .lightbox-next { font-size: 1.5rem; padding: 10px 8px; }
+  }
+
   @media (min-width: 769px) {
     .project-card.featured { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
     .project-card.featured .project-body { grid-column: 1; }
@@ -296,6 +338,7 @@
     <button class="mobile-menu-btn" id="menuBtn" aria-label="菜单">☰</button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#projects">项目</a></li>
+      <li><a href="#design">作品</a></li>
       <li><a href="#skills">技能</a></li>
       <li><a href="#experience">经历</a></li>
       <li><a href="#contact" class="nav-cta">联系我</a></li>
@@ -421,6 +464,39 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ===== Design Gallery ===== -->
+<section id="design">
+  <div class="container">
+    <p class="section-label reveal">设计作品</p>
+    <h2 class="section-title reveal">Procreate 视觉设计</h2>
+    <p style="color: var(--text2); margin-top: -32px; margin-bottom: 32px; font-size: 0.92rem;" class="reveal">
+      熟练掌握 Procreate 数字绘画与海报设计，具备构图、配色、排版能力——可直接迁移至 Listing 主图与 A+ 页面视觉设计
+    </p>
+
+    <div class="gallery-grid reveal">
+      <div class="gallery-item" data-index="0"><img src="images/design-01.png" alt="海报设计 01" loading="lazy"></div>
+      <div class="gallery-item" data-index="1"><img src="images/design-02.png" alt="海报设计 02" loading="lazy"></div>
+      <div class="gallery-item" data-index="2"><img src="images/design-03.png" alt="海报设计 03" loading="lazy"></div>
+      <div class="gallery-item" data-index="3"><img src="images/design-04.png" alt="海报设计 04" loading="lazy"></div>
+      <div class="gallery-item" data-index="4"><img src="images/design-05.png" alt="海报设计 05" loading="lazy"></div>
+      <div class="gallery-item" data-index="5"><img src="images/design-06.png" alt="海报设计 06" loading="lazy"></div>
+      <div class="gallery-item" data-index="6"><img src="images/design-07.jpg" alt="海报设计 07" loading="lazy"></div>
+      <div class="gallery-item" data-index="7"><img src="images/design-08.jpg" alt="海报设计 08" loading="lazy"></div>
+      <div class="gallery-item" data-index="8"><img src="images/design-09.jpg" alt="海报设计 09" loading="lazy"></div>
+      <div class="gallery-item" data-index="9"><img src="images/design-10.jpg" alt="海报设计 10" loading="lazy"></div>
+      <div class="gallery-item" data-index="10"><img src="images/design-11.jpg" alt="海报设计 11" loading="lazy"></div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lbClose">✕</button>
+    <button class="lightbox-prev" id="lbPrev">‹</button>
+    <img src="" alt="" id="lbImg">
+    <button class="lightbox-next" id="lbNext">›</button>
   </div>
 </section>
 
@@ -569,6 +645,35 @@
     if (currentScroll <= 0) { nav.style.transform = 'translateY(0)'; return; }
     nav.style.transform = currentScroll > lastScroll ? 'translateY(-100%)' : 'translateY(0)';
     lastScroll = currentScroll;
+  });
+
+  // Lightbox
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  const items = document.querySelectorAll('.gallery-item');
+  let curIdx = 0;
+
+  function openLb(idx) {
+    curIdx = idx;
+    lbImg.src = items[idx].querySelector('img').src;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLb() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+  function prevLb() { openLb((curIdx - 1 + items.length) % items.length); }
+  function nextLb() { openLb((curIdx + 1) % items.length); }
+
+  items.forEach(item => item.addEventListener('click', () => openLb(parseInt(item.dataset.index))));
+  document.getElementById('lbClose').addEventListener('click', closeLb);
+  document.getElementById('lbPrev').addEventListener('click', prevLb);
+  document.getElementById('lbNext').addEventListener('click', nextLb);
+  lb.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
+  document.addEventListener('keydown', (e) => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowLeft') prevLb();
+    if (e.key === 'ArrowRight') nextLb();
   });
 </script>
 
