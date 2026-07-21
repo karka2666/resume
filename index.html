@@ -12,17 +12,21 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --ivory: #FEFCF9;
-    --ivory2: #F9F6F0;
+    --ivory: #FDF9F8;
+    --ivory2: #FAF4F2;
     --white: #FFFFFF;
-    --ink: #1a1a1a;
-    --ink2: #5e5e5e;
-    --ink3: #969696;
-    --line: #e8e3db;
-    --line2: #f0ebe3;
-    --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
-    --shadow: 0 4px 20px rgba(0,0,0,0.06);
-    --shadow-lg: 0 16px 48px rgba(0,0,0,0.09);
+    --ink: #2c2022;
+    --ink2: #8c7a7c;
+    --ink3: #b8a8a9;
+    --line: #ece0de;
+    --line2: #f2e8e6;
+    --accent: #c4928a;
+    --accent-dark: #a0706a;
+    --accent-light: #f5ece9;
+    --green: #b8c8ba;
+    --shadow-sm: 0 1px 3px rgba(140,100,100,0.05);
+    --shadow: 0 4px 20px rgba(140,100,100,0.07);
+    --shadow-lg: 0 16px 48px rgba(140,100,100,0.10);
     --radius: 10px;
     --transition: 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
   }
@@ -56,7 +60,7 @@
   /* ===== Top Bar ===== */
   .topbar {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(254, 252, 249, 0.8); backdrop-filter: blur(12px);
+    background: rgba(253, 249, 248, 0.75); backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--line2); padding: 0 32px;
     display: flex; align-items: center; justify-content: space-between; height: 52px;
   }
@@ -67,7 +71,7 @@
   .menu-btn { display: none; background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--ink); }
 
   /* ===== Hero ===== */
-  .hero { padding: 180px 0 100px; }
+  .hero { padding: 180px 0 100px; background: linear-gradient(180deg, #fdf2f0 0%, #faf7f4 30%, #FDF9F8 60%, #FDF9F8 100%); }
   .hero-grid { display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: start; }
   .hero-avatar { width: 110px; height: 140px; border-radius: 8px; overflow: hidden; background: var(--line2); flex-shrink: 0; margin-top: 8px; }
   .hero-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -94,7 +98,7 @@
     font-family: "PingFang SC", sans-serif;
   }
   .skill-tag:hover { border-color: var(--ink3); transform: translateY(-2px); }
-  .skill-tag.hl { background: var(--ink); color: var(--ivory); border-color: var(--ink); }
+  .skill-tag.hl { background: var(--accent-dark); color: #fff; border-color: var(--accent-dark); }
 
   /* ===== Projects ===== */
   .project-list { display: flex; flex-direction: column; gap: 64px; }
@@ -112,7 +116,7 @@
 
   .proj-tags { display: flex; gap: 8px; flex-wrap: wrap; }
   .proj-tags span { font-family: "PingFang SC", sans-serif; font-size: 0.75rem; padding: 4px 12px; border-radius: 14px; background: var(--ivory2); color: var(--ink2); }
-  .proj-tags span.hl { background: var(--ink); color: var(--ivory); }
+  .proj-tags span.hl { background: var(--accent-dark); color: #fff; }
 
   .proj-bullets { margin-top: 12px; padding-left: 18px; }
   .proj-bullets li { color: var(--ink2); font-size: 0.88rem; line-height: 1.8; margin-bottom: 6px; }
@@ -169,7 +173,7 @@
   /* ===== Vibe Badge ===== */
   .vibe-tag {
     position: fixed; bottom: 24px; left: 24px; z-index: 100;
-    background: var(--ink); color: var(--ivory); font-family: "PingFang SC", sans-serif;
+    background: var(--accent-dark); color: #fff; font-family: "PingFang SC", sans-serif;
     font-size: 0.75rem; padding: 8px 14px; border-radius: 20px; letter-spacing: 0.04em;
     box-shadow: 0 4px 16px rgba(0,0,0,0.12); animation: appear 1s ease 0.6s both;
   }
