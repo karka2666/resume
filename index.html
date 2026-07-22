@@ -329,19 +329,28 @@
 
   /* ===== Print PDF ===== */
   @media print {
-    .splash, .topbar, .vibe-tag, .return-btn, .scroll-hint, .side-nav, .menu-btn { display: none !important; }
-    section { padding: 36px 0 !important; min-height: auto !important; page-break-inside: avoid; }
-    .hero { padding: 50px 0 30px !important; }
-    body { font-size: 13px; line-height: 1.6; }
-    .container { max-width: 100%; padding: 0 16px; }
-    .proj-row { grid-template-columns: 140px 1fr !important; gap: 20px !important; }
-    .masonry { grid-template-columns: repeat(4, 1fr) !important; }
+    .topbar, .vibe-tag, .return-btn, .scroll-hint, .side-nav, .menu-btn, .lb { display: none !important; }
+
+    /* Splash as cover page */
+    .splash {
+      position: relative !important; z-index: auto !important;
+      height: 100vh !important; page-break-after: always;
+      display: flex !important; opacity: 1 !important; visibility: visible !important;
+    }
+    .splash.exit { opacity: 1 !important; visibility: visible !important; }
+
+    section { padding: 32px 0 !important; min-height: auto !important; page-break-inside: avoid; }
+    .hero { padding: 40px 0 24px !important; page-break-after: avoid; }
+    body { font-size: 12px; line-height: 1.55; }
+    .container { max-width: 100%; padding: 0 14px; }
+    .proj-row { grid-template-columns: 130px 1fr !important; gap: 16px !important; }
+    .proj-list { gap: 32px !important; }
+    .masonry { grid-template-columns: repeat(4, 1fr) !important; gap: 4px !important; }
     .gallery-wrap { overflow: visible !important; white-space: normal !important; display: flex; flex-wrap: wrap; }
     .gallery-card { width: 22%; margin: 1%; flex-shrink: 0; }
-    .lb { display: none !important; }
-    h1 { font-size: 2rem !important; }
-    h2 { font-size: 1.2rem !important; }
-    @page { margin: 10mm; size: A4; }
+    h1 { font-size: 1.8rem !important; }
+    h2 { font-size: 1.1rem !important; }
+    @page { margin: 8mm; size: A4; }
   }
 </style>
 </head>
